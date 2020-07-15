@@ -16,12 +16,12 @@ $EndDescr
 $Comp
 L Connector_Generic:Conn_02x08_Top_Bottom J1
 U 1 1 5F0EDBEF
-P 1650 2300
-F 0 "J1" H 1700 2800 50  0000 C CNN
-F 1 "Conn_02x08_Top_Bottom" H 1700 2726 50  0001 C CNN
-F 2 "" H 1650 2300 50  0001 C CNN
-F 3 "~" H 1650 2300 50  0001 C CNN
-	1    1650 2300
+P 1350 1450
+F 0 "J1" H 2000 1225 50  0000 C CNN
+F 1 "Conn_02x08_Top_Bottom" H 1400 1876 50  0001 C CNN
+F 2 "" H 1350 1450 50  0001 C CNN
+F 3 "~" H 1350 1450 50  0001 C CNN
+	1    1350 1450
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -35,9 +35,9 @@ F 3 "~" H 3500 2100 50  0001 C CNN
 	1    3500 2100
 	1    0    0    -1  
 $EndComp
-Text GLabel 1950 2100 2    50   Input ~ 0
+Text GLabel 2250 2000 2    50   Input ~ 0
 ELB1
-Text GLabel 1950 2200 2    50   Input ~ 0
+Text GLabel 2250 2100 2    50   Input ~ 0
 ELB2
 Text GLabel 3300 2100 0    50   Input ~ 0
 PWM
