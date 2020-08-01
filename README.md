@@ -9,4 +9,4 @@
 ## Authors
 
 - Lucas Valandro (@valandro)
-- Natália Rampon (@scarlat7)
+- Lucas Tansini (@lucastansini)
