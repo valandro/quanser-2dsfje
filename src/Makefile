@@ -20,6 +20,10 @@ $(TARGET): $(SRCS:.c=.o) ./lib/libgalileo2.a
 
 -include $(SRCS:.c=.d)
 
+documentation-example:
+	doxygen documentation/doxygenConfigurationFile.conf
+
+
 clean:
 	rm -f *~ *.bak *.o *.d
 

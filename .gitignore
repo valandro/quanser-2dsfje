@@ -4,6 +4,10 @@
 # Prerequisites
 *.d
 
+# Doxygen Output Documentation files
+src/documentation/generatedDocumentation/
+
+
 # Object files
 *.o
 *.ko
