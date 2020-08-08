@@ -16,33 +16,366 @@ $EndDescr
 $Comp
 L Connector_Generic:Conn_02x08_Top_Bottom J1
 U 1 1 5F0EDBEF
-P 1350 1450
-F 0 "J1" H 2000 1225 50  0000 C CNN
-F 1 "Conn_02x08_Top_Bottom" H 1400 1876 50  0001 C CNN
-F 2 "" H 1350 1450 50  0001 C CNN
-F 3 "~" H 1350 1450 50  0001 C CNN
-	1    1350 1450
+P 9800 2700
+F 0 "J1" H 10450 2475 50  0000 C CNN
+F 1 "Conn_02x08_Top_Bottom" H 9850 3126 50  0001 C CNN
+F 2 "" H 9800 2700 50  0001 C CNN
+F 3 "~" H 9800 2700 50  0001 C CNN
+	1    9800 2700
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x08 Galileo
 U 1 1 5F11F509
-P 3500 2100
-F 0 "Galileo" H 3580 2092 50  0000 L CNN
-F 1 "io0 - io7" H 3580 2001 50  0000 L CNN
-F 2 "" H 3500 2100 50  0001 C CNN
-F 3 "~" H 3500 2100 50  0001 C CNN
-	1    3500 2100
+P 10500 1550
+F 0 "Galileo" H 10580 1542 50  0000 L CNN
+F 1 "io0 - io7" H 10580 1451 50  0000 L CNN
+F 2 "" H 10500 1550 50  0001 C CNN
+F 3 "~" H 10500 1550 50  0001 C CNN
+	1    10500 1550
 	1    0    0    -1  
 $EndComp
-Text GLabel 2250 2000 2    50   Input ~ 0
+Text GLabel 10700 3250 2    50   Input ~ 0
 ELB1
-Text GLabel 2250 2100 2    50   Input ~ 0
+Text GLabel 10700 3350 2    50   Input ~ 0
 ELB2
-Text GLabel 3300 2100 0    50   Input ~ 0
+Text GLabel 10300 1550 0    50   Input ~ 0
 PWM
-Text GLabel 3300 1900 0    50   Input ~ 0
+Text GLabel 10300 1350 0    50   Input ~ 0
 ELB1
-Text GLabel 3300 2000 0    50   Input ~ 0
+Text GLabel 10300 1450 0    50   Input ~ 0
 ELB2
+$Comp
+L Connector_Generic:Conn_01x06 Galileo
+U 1 1 5F2CF317
+P 10500 2450
+F 0 "Galileo" H 10580 2492 50  0000 L CNN
+F 1 "io8 - io13" H 10580 2401 50  0000 L CNN
+F 2 "" H 10500 2500 50  0001 C CNN
+F 3 "~" H 10500 2500 50  0001 C CNN
+	1    10500 2450
+	1    0    0    -1  
+$EndComp
+Text GLabel 10300 2400 0    50   Input ~ 0
+SS
+Text GLabel 10300 2500 0    50   Input ~ 0
+MOSI
+Text GLabel 10300 2600 0    50   Input ~ 0
+MISO
+Text GLabel 10300 2700 0    50   Input ~ 0
+SCLK
+$Comp
+L Shield_Galileo-rescue:LS7366R-Quanser_2DSFJE_Library CI
+U 1 1 5F2DAC32
+P 5800 1600
+F 0 "CI" H 6050 1765 50  0000 C CNN
+F 1 "LS7366R" H 6050 1674 50  0000 C CNN
+F 2 "" H 6050 1750 50  0001 C CNN
+F 3 "" H 6050 1750 50  0001 C CNN
+	1    5800 1600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDREF #PWR?
+U 1 1 5F2E3B58
+P 5050 2100
+F 0 "#PWR?" H 5050 1850 50  0001 C CNN
+F 1 "GNDREF" H 5055 1927 50  0000 C CNN
+F 2 "" H 5050 2100 50  0001 C CNN
+F 3 "" H 5050 2100 50  0001 C CNN
+	1    5050 2100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5650 2050 5050 2050
+Wire Wire Line
+	5050 2050 5050 2100
+$Comp
+L power:+5V #PWR?
+U 1 1 5F2E7DD9
+P 6900 1500
+F 0 "#PWR?" H 6900 1350 50  0001 C CNN
+F 1 "+5V" H 6915 1673 50  0000 C CNN
+F 2 "" H 6900 1500 50  0001 C CNN
+F 3 "" H 6900 1500 50  0001 C CNN
+	1    6900 1500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6450 1750 6900 1750
+Wire Wire Line
+	6900 1750 6900 1500
+Wire Wire Line
+	6450 1900 6900 1900
+Wire Wire Line
+	6900 1900 6900 1750
+Connection ~ 6900 1750
+Text GLabel 5650 2200 0    50   Input ~ 0
+SS
+Text GLabel 5650 2350 0    50   Input ~ 0
+SCLK
+Text GLabel 5650 2500 0    50   Input ~ 0
+MISO
+Text GLabel 5650 2650 0    50   Input ~ 0
+MOSI
+$Comp
+L pspice:CAP C1
+U 1 1 5F2E936A
+P 3250 1250
+F 0 "C1" V 2935 1250 50  0000 C CNN
+F 1 "10pF" V 3026 1250 50  0000 C CNN
+F 2 "" H 3250 1250 50  0001 C CNN
+F 3 "~" H 3250 1250 50  0001 C CNN
+	1    3250 1250
+	0    1    1    0   
+$EndComp
+$Comp
+L pspice:CAP C2
+U 1 1 5F2F5555
+P 3250 1900
+F 0 "C2" V 2935 1900 50  0000 C CNN
+F 1 "10pF" V 3026 1900 50  0000 C CNN
+F 2 "" H 3250 1900 50  0001 C CNN
+F 3 "~" H 3250 1900 50  0001 C CNN
+	1    3250 1900
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GNDREF #PWR?
+U 1 1 5F2F6991
+P 2400 1950
+F 0 "#PWR?" H 2400 1700 50  0001 C CNN
+F 1 "GNDREF" H 2405 1777 50  0000 C CNN
+F 2 "" H 2400 1950 50  0001 C CNN
+F 3 "" H 2400 1950 50  0001 C CNN
+	1    2400 1950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3000 1900 2400 1900
+Wire Wire Line
+	2400 1900 2400 1950
+Wire Wire Line
+	2400 1900 2400 1250
+Wire Wire Line
+	2400 1250 3000 1250
+Connection ~ 2400 1900
+$Comp
+L Shield_Galileo-rescue:Connector_Encoder-Quanser_2DSFJE_Library J2
+U 1 1 5F2F72BA
+P 7750 2000
+F 0 "J2" H 7750 1725 50  0000 C CNN
+F 1 "Connector Encoder" H 7750 1634 50  0000 C CNN
+F 2 "" H 7750 2000 50  0001 C CNN
+F 3 "" H 7750 2000 50  0001 C CNN
+	1    7750 2000
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:Crystal Crystal
+U 1 1 5F2FA4D4
+P 3800 1600
+F 0 "Crystal" V 3754 1731 50  0000 L CNN
+F 1 "30MHz" V 3845 1731 50  0000 L CNN
+F 2 "" H 3800 1600 50  0001 C CNN
+F 3 "~" H 3800 1600 50  0001 C CNN
+	1    3800 1600
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3500 1250 3800 1250
+Wire Wire Line
+	3800 1250 3800 1450
+Wire Wire Line
+	3500 1900 3800 1900
+Wire Wire Line
+	3800 1900 3800 1750
+$Comp
+L Device:R R2
+U 1 1 5F2FC510
+P 4400 1600
+F 0 "R2" H 4470 1646 50  0000 L CNN
+F 1 "1M" H 4470 1555 50  0000 L CNN
+F 2 "" V 4330 1600 50  0001 C CNN
+F 3 "~" H 4400 1600 50  0001 C CNN
+	1    4400 1600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3800 1250 4400 1250
+Wire Wire Line
+	4400 1250 4400 1450
+Connection ~ 3800 1250
+Wire Wire Line
+	3800 1900 4400 1900
+Wire Wire Line
+	4400 1900 4400 1750
+Connection ~ 3800 1900
+Wire Wire Line
+	4400 1900 5650 1900
+Connection ~ 4400 1900
+Wire Wire Line
+	5650 1750 5050 1750
+Wire Wire Line
+	5050 1750 5050 1250
+Wire Wire Line
+	5050 1250 4400 1250
+Connection ~ 4400 1250
+Wire Wire Line
+	6450 2050 7050 2050
+Wire Wire Line
+	7050 2050 7050 2000
+Wire Wire Line
+	6450 2200 7200 2200
+Wire Wire Line
+	7200 2200 7200 2100
+Wire Wire Line
+	7200 2100 7450 2100
+Wire Wire Line
+	7050 2000 7450 2000
+Wire Wire Line
+	9100 1350 9100 1400
+Wire Wire Line
+	9450 1350 9100 1350
+$Comp
+L power:GNDREF #PWR?
+U 1 1 5F2E72AC
+P 9100 1400
+F 0 "#PWR?" H 9100 1150 50  0001 C CNN
+F 1 "GNDREF" H 9105 1227 50  0000 C CNN
+F 2 "" H 9100 1400 50  0001 C CNN
+F 3 "" H 9100 1400 50  0001 C CNN
+	1    9100 1400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9100 1250 9100 1200
+Wire Wire Line
+	9450 1250 9100 1250
+$Comp
+L power:+5V #PWR?
+U 1 1 5F2E56A3
+P 9100 1200
+F 0 "#PWR?" H 9100 1050 50  0001 C CNN
+F 1 "+5V" H 9115 1373 50  0000 C CNN
+F 2 "" H 9100 1200 50  0001 C CNN
+F 3 "" H 9100 1200 50  0001 C CNN
+	1    9100 1200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x02 Galileo
+U 1 1 5F2E11BE
+P 9650 1250
+F 0 "Galileo" H 9730 1242 50  0000 L CNN
+F 1 "Pinos" H 9730 1151 50  0000 L CNN
+F 2 "" H 9650 1250 50  0001 C CNN
+F 3 "~" H 9650 1250 50  0001 C CNN
+	1    9650 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDREF #PWR?
+U 1 1 5F31D0A1
+P 8450 2150
+F 0 "#PWR?" H 8450 1900 50  0001 C CNN
+F 1 "GNDREF" H 8455 1977 50  0000 C CNN
+F 2 "" H 8450 2150 50  0001 C CNN
+F 3 "" H 8450 2150 50  0001 C CNN
+	1    8450 2150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8050 2000 8450 2000
+Wire Wire Line
+	8450 2000 8450 2150
+$Comp
+L power:+5V #PWR?
+U 1 1 5F31E67A
+P 8300 1800
+F 0 "#PWR?" H 8300 1650 50  0001 C CNN
+F 1 "+5V" H 8315 1973 50  0000 C CNN
+F 2 "" H 8300 1800 50  0001 C CNN
+F 3 "" H 8300 1800 50  0001 C CNN
+	1    8300 1800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8050 2100 8300 2100
+Wire Wire Line
+	8300 2100 8300 1800
+$Comp
+L Driver_Motor:L298HN PonteH
+U 1 1 5F2EC224
+P 3550 4650
+F 0 "PonteH" H 3550 5531 50  0000 C CNN
+F 1 "L298HN" H 3550 5440 50  0000 C CNN
+F 2 "Package_TO_SOT_THT:TO-220-15_P2.54x2.54mm_StaggerOdd_Lead4.58mm_Vertical" H 3600 4000 50  0001 L CNN
+F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/CD00000240.pdf" H 3700 4900 50  0001 C CNN
+	1    3550 4650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3550 5500 3550 5350
+$Comp
+L pspice:CAP C3
+U 1 1 5F2F5DE3
+P 5250 4600
+F 0 "C3" H 5428 4646 50  0000 L CNN
+F 1 "100nF" H 5428 4555 50  0000 L CNN
+F 2 "" H 5250 4600 50  0001 C CNN
+F 3 "~" H 5250 4600 50  0001 C CNN
+	1    5250 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L pspice:CAP C4
+U 1 1 5F2F9FB7
+P 6000 4600
+F 0 "C4" H 6178 4646 50  0000 L CNN
+F 1 "100nF" H 6178 4555 50  0000 L CNN
+F 2 "" H 6000 4600 50  0001 C CNN
+F 3 "~" H 6000 4600 50  0001 C CNN
+	1    6000 4600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3550 5500 5250 5500
+Wire Wire Line
+	6000 3750 6000 4350
+Wire Wire Line
+	6000 4850 6000 5500
+Wire Wire Line
+	3550 3950 3550 3900
+Wire Wire Line
+	3550 3900 5250 3900
+Wire Wire Line
+	5250 3900 5250 4350
+Wire Wire Line
+	5250 4850 5250 5500
+Connection ~ 5250 5500
+Wire Wire Line
+	5250 5500 6000 5500
+$Comp
+L power:+5V #PWR?
+U 1 1 5F2FFCD8
+P 3150 3650
+F 0 "#PWR?" H 3150 3500 50  0001 C CNN
+F 1 "+5V" H 3165 3823 50  0000 C CNN
+F 2 "" H 3150 3650 50  0001 C CNN
+F 3 "" H 3150 3650 50  0001 C CNN
+	1    3150 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3650 3950 3900 3950
+Wire Wire Line
+	3900 3950 3900 3750
+Wire Wire Line
+	3900 3750 6000 3750
+Wire Wire Line
+	3150 3650 3150 3900
+Wire Wire Line
+	3150 3900 3550 3900
+Connection ~ 3550 3900
 $EndSCHEMATC
