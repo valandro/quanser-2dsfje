@@ -1,0 +1,127 @@
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides:          eng10032_quanser
+# Required-Start:    
+# Should-Start:      
+# Required-Stop:     
+# Default-Start:     S
+# Default-Stop:
+# Short-Description: Configures GPIO for Quanser Project.
+# Description:       Configures GPIO for Quanser Project.
+### END INIT INFO
+
+boardId=`cat /sys/devices/virtual/dmi/id/board_name`
+
+case "$1" in
+  start|restart|force-reload)
+    case $boardId in
+      "GalileoGen2")
+				############################################################################################
+				# IO1 input - ELB1 
+				## Left Shifter GPIO
+				if [ ! -d /sys/class/gpio/gpio28 ] ; then
+					echo -n "28" > /sys/class/gpio/export
+				fi
+				echo -n "in" > /sys/class/gpio/gpio28/direction
+				echo -n "0" > /sys/class/gpio/gpio28/value
+
+				## 22k Pull-up GPIO
+				if [ ! -d /sys/class/gpio/gpio29 ] ; then
+					echo -n "29" > /sys/class/gpio/export
+				fi
+
+				### No pull-up neither pull-down
+				echo -n "in" > /sys/class/gpio/gpio29/direction
+
+				## Pin Mux 1 GPIO
+				if [ ! -d /sys/class/gpio/gpio45 ] ; then
+					echo -n "45" > /sys/class/gpio/export
+				fi
+
+				echo -n "in" > /sys/class/gpio/gpio45/direction
+				echo -n "0" > /sys/class/gpio/gpio45/value
+
+				## Linux
+				if [ ! -d /sys/class/gpio/gpio12 ] ; then
+					echo -n "12" > /sys/class/gpio/export
+				fi
+
+				## Permissions
+				chgrp gpio /sys/class/gpio/gpio12/value
+				chmod g+r /sys/class/gpio/gpio12/value
+
+				############################################################################################
+				# IO2 input - ELB2
+				## Left Shifter GPIO
+				if [ ! -d /sys/class/gpio/gpio34 ] ; then
+					echo -n "34" > /sys/class/gpio/export
+				fi
+				echo -n "in" > /sys/class/gpio/gpio34/direction
+				echo -n "0" > /sys/class/gpio/gpio34/value
+
+				## 22k Pull-up GPIO
+				if [ ! -d /sys/class/gpio/gpio35 ] ; then
+					echo -n "35" > /sys/class/gpio/export
+				fi
+
+				### No pull-up neither pull-down
+				echo -n "in" > /sys/class/gpio/gpio35/direction
+
+				## Pin Mux 1 GPIO
+				if [ ! -d /sys/class/gpio/gpio77 ] ; then
+					echo -n "77" > /sys/class/gpio/export
+				fi
+
+				echo -n "in" > /sys/class/gpio/gpio77/direction
+				echo -n "0" > /sys/class/gpio/gpio77/value
+
+				## Linux
+				if [ ! -d /sys/class/gpio/gpio13 ] ; then
+					echo -n "13" > /sys/class/gpio/export
+				fi
+
+				## Permissions
+				chgrp gpio /sys/class/gpio/gpio13/value
+				chmod g+r /sys/class/gpio/gpio13/value			
+	;;
+    esac
+    ;;
+  stop)
+    case $boardId in
+      "GalileoGen2")
+				# IO1 input - ELB1
+				echo -n "in" > /sys/class/gpio/gpio28/direction
+				echo -n "1" > /sys/class/gpio/gpio28/value
+				echo -n "28" > /sys/class/gpio/unexport
+				echo -n "in" > /sys/class/gpio/gpio29/direction
+				echo -n "1" > /sys/class/gpio/gpio29/value
+				echo -n "29" > /sys/class/gpio/unexport
+				echo -n "in" > /sys/class/gpio/gpio45/direction
+				echo -n "1" > /sys/class/gpio/gpio45/value
+				echo -n "45" > /sys/class/gpio/unexport
+				echo -n "12" > /sys/class/gpio/unexport
+				# IO2 input - ELB2
+				echo -n "in" > /sys/class/gpio/gpio34/direction
+				echo -n "1" > /sys/class/gpio/gpio34/value
+				echo -n "34" > /sys/class/gpio/unexport
+				echo -n "in" > /sys/class/gpio/gpio35/direction
+				echo -n "1" > /sys/class/gpio/gpio35/value
+				echo -n "35" > /sys/class/gpio/unexport
+				echo -n "in" > /sys/class/gpio/gpio77/direction
+				echo -n "1" > /sys/class/gpio/gpio77/value
+				echo -n "77" > /sys/class/gpio/unexport
+				echo -n "13" > /sys/class/gpio/unexport
+	;;
+    esac
+    ;;
+  status)
+    	ls -d /sys/class/gpio/gpio*
+	;;
+  *)
+	echo -n "Usage: $0 " 
+	echo "{start|stop|restart|force-reload|status}"
+	exit 1
+	;;
+esac
+
+exit 0

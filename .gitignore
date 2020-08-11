@@ -3,6 +3,7 @@
 
 # Prerequisites
 *.d
+!init.d/
 
 # Doxygen Output Documentation files
 src/documentation/generatedDocumentation/
