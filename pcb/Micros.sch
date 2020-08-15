@@ -399,17 +399,6 @@ Wire Wire Line
 Connection ~ 5250 5100
 Wire Wire Line
 	5250 4050 6000 4050
-$Comp
-L Motor:Motor_AC Motor
-U 1 1 5F3B10F0
-P 6000 4500
-F 0 "Motor" H 6158 4496 50  0000 L CNN
-F 1 "Motor_AC" H 6158 4405 50  0000 L CNN
-F 2 "" H 6000 4410 50  0001 C CNN
-F 3 "~" H 6000 4410 50  0001 C CNN
-	1    6000 4500
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	6000 4050 6000 4300
 Wire Wire Line
@@ -499,4 +488,15 @@ Wire Wire Line
 	10800 3150 10700 3150
 Wire Wire Line
 	10800 3050 10700 3050
+$Comp
+L Motor:Motor_DC M1
+U 1 1 5F40B5F8
+P 6000 4500
+F 0 "M1" H 6158 4496 50  0000 L CNN
+F 1 "Motor_DC" H 6158 4405 50  0000 L CNN
+F 2 "" H 6000 4410 50  0001 C CNN
+F 3 "~" H 6000 4410 50  0001 C CNN
+	1    6000 4500
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
