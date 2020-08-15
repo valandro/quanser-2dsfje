@@ -16,12 +16,12 @@ $EndDescr
 $Comp
 L Connector_Generic:Conn_02x08_Top_Bottom J1
 U 1 1 5F0EDBEF
-P 5450 2850
-F 0 "J1" H 6100 2625 50  0000 C CNN
-F 1 "Conn_02x08_Top_Bottom" H 5500 3276 50  0001 C CNN
-F 2 "" H 5450 2850 50  0001 C CNN
-F 3 "~" H 5450 2850 50  0001 C CNN
-	1    5450 2850
+P 9800 2700
+F 0 "J1" H 10450 2475 50  0000 C CNN
+F 1 "Conn_02x08_Top_Bottom" H 9850 3126 50  0001 C CNN
+F 2 "" H 9800 2700 50  0001 C CNN
+F 3 "~" H 9800 2700 50  0001 C CNN
+	1    9800 2700
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -35,9 +35,9 @@ F 3 "~" H 10500 1550 50  0001 C CNN
 	1    10500 1550
 	1    0    0    -1  
 $EndComp
-Text GLabel 6350 3400 2    50   Input ~ 0
+Text GLabel 10700 3250 2    50   Input ~ 0
 ELB1
-Text GLabel 6350 3500 2    50   Input ~ 0
+Text GLabel 10700 3350 2    50   Input ~ 0
 ELB2
 Text GLabel 10300 1550 0    50   Input ~ 0
 PWM
@@ -304,4 +304,65 @@ Wire Wire Line
 	8050 2100 8300 2100
 Wire Wire Line
 	8300 2100 8300 1800
+$Comp
+L Driver_Motor:LMD18200 H-Bridge
+U 1 1 5F3866DE
+P 3850 4750
+F 0 "H-Bridge" H 3850 5731 50  0000 C CNN
+F 1 "LMD18200" H 3850 5640 50  0000 C CNN
+F 2 "Package_TO_SOT_THT:TO-220-11_P3.4x5.08mm_StaggerOdd_Lead4.85mm_Vertical" H 2400 3400 50  0001 L CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lmd18200.pdf" H 3750 4750 50  0001 C CNN
+	1    3850 4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDREF #PWR?
+U 1 1 5F3895E3
+P 3850 5850
+F 0 "#PWR?" H 3850 5600 50  0001 C CNN
+F 1 "GNDREF" H 3855 5677 50  0000 C CNN
+F 2 "" H 3850 5850 50  0001 C CNN
+F 3 "" H 3850 5850 50  0001 C CNN
+	1    3850 5850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3850 5650 3850 5850
+$Comp
+L pspice:CAP C3
+U 1 1 5F38EF9A
+P 5250 4300
+F 0 "C3" H 5428 4346 50  0000 L CNN
+F 1 "10nF" H 5428 4255 50  0000 L CNN
+F 2 "" H 5250 4300 50  0001 C CNN
+F 3 "~" H 5250 4300 50  0001 C CNN
+	1    5250 4300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4550 4150 4700 4150
+Wire Wire Line
+	4700 4150 4700 4050
+Wire Wire Line
+	4700 4050 5250 4050
+Wire Wire Line
+	4550 4450 4700 4450
+Wire Wire Line
+	4700 4450 4700 4550
+Wire Wire Line
+	4700 4550 5250 4550
+$Comp
+L Connector:Conn_01x01_Female J2
+U 1 1 5F395600
+P 5950 4050
+F 0 "J2" H 5978 4076 50  0000 L CNN
+F 1 "Motor" H 5978 3985 50  0000 L CNN
+F 2 "" H 5950 4050 50  0001 C CNN
+F 3 "~" H 5950 4050 50  0001 C CNN
+	1    5950 4050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5250 4050 5750 4050
+Connection ~ 5250 4050
 $EndSCHEMATC
