@@ -4,8 +4,8 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title ""
-Date ""
+Title "ENG10032 - Microcontroladores "
+Date "2020-08-20"
 Rev ""
 Comp ""
 Comment1 ""
@@ -13,77 +13,31 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L Connector_Generic:Conn_02x08_Top_Bottom J1
-U 1 1 5F0EDBEF
-P 9800 2700
-F 0 "J1" H 10450 2475 50  0000 C CNN
-F 1 "Conn_02x08_Top_Bottom" H 9850 3126 50  0001 C CNN
-F 2 "" H 9800 2700 50  0001 C CNN
-F 3 "~" H 9800 2700 50  0001 C CNN
-	1    9800 2700
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector_Generic:Conn_01x08 Galileo
-U 1 1 5F11F509
-P 10500 1550
-F 0 "Galileo" H 10580 1542 50  0000 L CNN
-F 1 "io0 - io7" H 10580 1451 50  0000 L CNN
-F 2 "" H 10500 1550 50  0001 C CNN
-F 3 "~" H 10500 1550 50  0001 C CNN
-	1    10500 1550
-	1    0    0    -1  
-$EndComp
-Text GLabel 10700 3250 2    50   Input ~ 0
+Text GLabel 10700 3250 2    50   Output ~ 0
 ELB1
-Text GLabel 10700 3350 2    50   Input ~ 0
+Text GLabel 10700 3350 2    50   Output ~ 0
 ELB2
-Text GLabel 10300 1550 0    50   Input ~ 0
+Text GLabel 10450 1450 0    50   Output ~ 0
 PWM
-Text GLabel 10300 1350 0    50   Input ~ 0
+Text GLabel 10450 1250 0    50   Input ~ 0
 ELB1
-Text GLabel 10300 1450 0    50   Input ~ 0
+Text GLabel 10450 1350 0    50   Input ~ 0
 ELB2
-$Comp
-L Connector_Generic:Conn_01x06 Galileo
-U 1 1 5F2CF317
-P 10500 2450
-F 0 "Galileo" H 10580 2492 50  0000 L CNN
-F 1 "io8 - io13" H 10580 2401 50  0000 L CNN
-F 2 "" H 10500 2500 50  0001 C CNN
-F 3 "~" H 10500 2500 50  0001 C CNN
-	1    10500 2450
-	1    0    0    -1  
-$EndComp
-Text GLabel 10300 2400 0    50   Input ~ 0
-SS
-Text GLabel 10300 2500 0    50   Input ~ 0
+Text GLabel 10450 2500 0    50   Output ~ 0
+#SS
+Text GLabel 10450 2400 0    50   Output ~ 0
 MOSI
-Text GLabel 10300 2600 0    50   Input ~ 0
-MISO
-Text GLabel 10300 2700 0    50   Input ~ 0
+Text GLabel 10450 2200 0    50   Output ~ 0
 SCLK
 $Comp
-L Shield_Galileo-rescue:LS7366R-Quanser_2DSFJE_Library CI
+L Shield_Galileo-rescue:LS7366R-Quanser_2DSFJE_Library U2
 U 1 1 5F2DAC32
 P 5800 1600
-F 0 "CI" H 6050 1765 50  0000 C CNN
-F 1 "LS7366R" H 6050 1674 50  0000 C CNN
+F 0 "U2" H 6050 1765 50  0000 C CNN
+F 1 "LS7366R" H 6050 1674 50  0001 C CNN
 F 2 "" H 6050 1750 50  0001 C CNN
 F 3 "" H 6050 1750 50  0001 C CNN
 	1    5800 1600
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 5F2E3B58
-P 5050 2100
-F 0 "#PWR?" H 5050 1850 50  0001 C CNN
-F 1 "GNDREF" H 5055 1927 50  0000 C CNN
-F 2 "" H 5050 2100 50  0001 C CNN
-F 3 "" H 5050 2100 50  0001 C CNN
-	1    5050 2100
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -111,10 +65,10 @@ Wire Wire Line
 	6900 1900 6900 1750
 Connection ~ 6900 1750
 Text GLabel 5650 2200 0    50   Input ~ 0
-SS
+#SS
 Text GLabel 5650 2350 0    50   Input ~ 0
 SCLK
-Text GLabel 5650 2500 0    50   Input ~ 0
+Text GLabel 5650 2500 0    50   Output ~ 0
 MISO
 Text GLabel 5650 2650 0    50   Input ~ 0
 MOSI
@@ -140,21 +94,8 @@ F 3 "~" H 3250 1900 50  0001 C CNN
 	1    3250 1900
 	0    1    1    0   
 $EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 5F2F6991
-P 2400 1950
-F 0 "#PWR?" H 2400 1700 50  0001 C CNN
-F 1 "GNDREF" H 2405 1777 50  0000 C CNN
-F 2 "" H 2400 1950 50  0001 C CNN
-F 3 "" H 2400 1950 50  0001 C CNN
-	1    2400 1950
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	3000 1900 2400 1900
-Wire Wire Line
-	2400 1900 2400 1950
 Wire Wire Line
 	2400 1900 2400 1250
 Wire Wire Line
@@ -191,10 +132,10 @@ Wire Wire Line
 Wire Wire Line
 	3800 1900 3800 1750
 $Comp
-L Device:R R2
+L Device:R R1
 U 1 1 5F2FC510
 P 4400 1600
-F 0 "R2" H 4470 1646 50  0000 L CNN
+F 0 "R1" H 4470 1646 50  0000 L CNN
 F 1 "1M" H 4470 1555 50  0000 L CNN
 F 2 "" V 4330 1600 50  0001 C CNN
 F 3 "~" H 4400 1600 50  0001 C CNN
@@ -234,61 +175,20 @@ Wire Wire Line
 Wire Wire Line
 	7050 2000 7450 2000
 Wire Wire Line
-	9100 1350 9100 1400
-Wire Wire Line
-	9450 1350 9100 1350
-$Comp
-L power:GNDREF #PWR?
-U 1 1 5F2E72AC
-P 9100 1400
-F 0 "#PWR?" H 9100 1150 50  0001 C CNN
-F 1 "GNDREF" H 9105 1227 50  0000 C CNN
-F 2 "" H 9100 1400 50  0001 C CNN
-F 3 "" H 9100 1400 50  0001 C CNN
-	1    9100 1400
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	9100 1250 9100 1200
-Wire Wire Line
-	9450 1250 9100 1250
+	9600 1250 9350 1250
 $Comp
 L power:+5V #PWR?
 U 1 1 5F2E56A3
-P 9100 1200
-F 0 "#PWR?" H 9100 1050 50  0001 C CNN
-F 1 "+5V" H 9115 1373 50  0000 C CNN
-F 2 "" H 9100 1200 50  0001 C CNN
-F 3 "" H 9100 1200 50  0001 C CNN
-	1    9100 1200
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector_Generic:Conn_01x02 Galileo
-U 1 1 5F2E11BE
-P 9650 1250
-F 0 "Galileo" H 9730 1242 50  0000 L CNN
-F 1 "Pinos" H 9730 1151 50  0000 L CNN
-F 2 "" H 9650 1250 50  0001 C CNN
-F 3 "~" H 9650 1250 50  0001 C CNN
-	1    9650 1250
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 5F31D0A1
-P 8450 2150
-F 0 "#PWR?" H 8450 1900 50  0001 C CNN
-F 1 "GNDREF" H 8455 1977 50  0000 C CNN
-F 2 "" H 8450 2150 50  0001 C CNN
-F 3 "" H 8450 2150 50  0001 C CNN
-	1    8450 2150
+P 9050 1250
+F 0 "#PWR?" H 9050 1100 50  0001 C CNN
+F 1 "+5V" H 9065 1423 50  0000 C CNN
+F 2 "" H 9050 1250 50  0001 C CNN
+F 3 "" H 9050 1250 50  0001 C CNN
+	1    9050 1250
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	8050 2000 8450 2000
-Wire Wire Line
-	8450 2000 8450 2150
 $Comp
 L power:+5V #PWR?
 U 1 1 5F31E67A
@@ -305,25 +205,14 @@ Wire Wire Line
 Wire Wire Line
 	8300 2100 8300 1800
 $Comp
-L Driver_Motor:LMD18200 H-Bridge
+L Driver_Motor:LMD18200 U1
 U 1 1 5F3866DE
 P 6750 4700
-F 0 "H-Bridge" H 6750 5681 50  0000 C CNN
-F 1 "LMD18200" H 6750 5590 50  0000 C CNN
+F 0 "U1" H 6750 5681 50  0000 L TNN
+F 1 "LMD18200" H 6750 5590 50  0001 L CNN
 F 2 "Package_TO_SOT_THT:TO-220-11_P3.4x5.08mm_StaggerOdd_Lead4.85mm_Vertical" H 5300 3350 50  0001 L CNN
 F 3 "http://www.ti.com/lit/ds/symlink/lmd18200.pdf" H 6650 4700 50  0001 C CNN
 	1    6750 4700
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDREF #PWR?
-U 1 1 5F3895E3
-P 6750 5800
-F 0 "#PWR?" H 6750 5550 50  0001 C CNN
-F 1 "GNDREF" H 6755 5627 50  0000 C CNN
-F 2 "" H 6750 5800 50  0001 C CNN
-F 3 "" H 6750 5800 50  0001 C CNN
-	1    6750 5800
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -351,7 +240,6 @@ Wire Wire Line
 	7600 4400 7600 4500
 Wire Wire Line
 	7600 4500 8150 4500
-Connection ~ 8150 4000
 $Comp
 L pspice:CAP C4
 U 1 1 5F3977D7
@@ -375,50 +263,8 @@ Wire Wire Line
 	7600 4900 7600 5050
 Wire Wire Line
 	7600 5050 8150 5050
-$Comp
-L power:PWR_FLAG #FLG?
-U 1 1 5F39B700
-P 6750 3500
-F 0 "#FLG?" H 6750 3575 50  0001 C CNN
-F 1 "PWR_FLAG" H 6750 3673 50  0000 C CNN
-F 2 "" H 6750 3500 50  0001 C CNN
-F 3 "~" H 6750 3500 50  0001 C CNN
-	1    6750 3500
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6750 3900 7000 3900
-Wire Wire Line
-	7000 3900 7000 3650
-Wire Wire Line
-	7000 3650 6750 3650
-Wire Wire Line
-	6750 3650 6750 3500
-Wire Wire Line
-	8150 5050 8900 5050
-Connection ~ 8150 5050
-Wire Wire Line
-	8150 4000 8900 4000
-Wire Wire Line
-	8900 4000 8900 4250
-Wire Wire Line
-	8900 4750 8900 5050
-Text GLabel 1750 4900 0    50   Input ~ 0
+Text GLabel 5650 4700 0    50   Input ~ 0
 PWM
-Wire Wire Line
-	1750 4900 2600 4900
-Wire Wire Line
-	7450 5100 7700 5100
-Wire Wire Line
-	7700 5100 7700 5700
-Wire Wire Line
-	7700 5700 6750 5700
-Connection ~ 6750 5700
-Wire Wire Line
-	6750 5700 6750 5800
-NoConn ~ 7900 5200
-Wire Wire Line
-	7450 5200 7900 5200
 NoConn ~ 6650 2350
 NoConn ~ 6650 2500
 NoConn ~ 6650 2650
@@ -428,12 +274,10 @@ Wire Wire Line
 	6450 2500 6650 2500
 Wire Wire Line
 	6450 2350 6650 2350
-NoConn ~ 10150 1650
-NoConn ~ 10150 1750
-NoConn ~ 10150 1850
-NoConn ~ 10150 1950
-NoConn ~ 10150 2200
-NoConn ~ 10150 2300
+NoConn ~ 10300 950 
+NoConn ~ 10300 1550
+NoConn ~ 10300 1800
+NoConn ~ 10300 1900
 NoConn ~ 10100 3050
 NoConn ~ 10100 3150
 NoConn ~ 10100 3250
@@ -449,17 +293,13 @@ NoConn ~ 10800 3450
 NoConn ~ 10800 3150
 NoConn ~ 10800 3050
 Wire Wire Line
-	10150 1650 10300 1650
+	10300 950  10450 950 
 Wire Wire Line
-	10150 1750 10300 1750
+	10300 1550 10450 1550
 Wire Wire Line
-	10150 1850 10300 1850
+	10300 1800 10450 1800
 Wire Wire Line
-	10150 1950 10300 1950
-Wire Wire Line
-	10150 2200 10300 2200
-Wire Wire Line
-	10150 2300 10300 2300
+	10300 1900 10450 1900
 Wire Wire Line
 	10100 3050 10200 3050
 Wire Wire Line
@@ -488,296 +328,366 @@ Wire Wire Line
 	10800 3150 10700 3150
 Wire Wire Line
 	10800 3050 10700 3050
-$Comp
-L Motor:Motor_DC M1
-U 1 1 5F40B5F8
-P 8900 4450
-F 0 "M1" H 9058 4446 50  0000 L CNN
-F 1 "Motor_DC" H 9058 4355 50  0000 L CNN
-F 2 "" H 8900 4360 50  0001 C CNN
-F 3 "~" H 8900 4360 50  0001 C CNN
-	1    8900 4450
-	1    0    0    -1  
-$EndComp
-Text GLabel 6550 3500 0    50   Input ~ 0
-27V
-Wire Wire Line
-	6550 3500 6750 3500
-Connection ~ 6750 3500
-Text GLabel 5450 4700 0    50   Input ~ 0
-DIRECTION
-$Comp
-L Transistor_BJT:BC817 Q1
-U 1 1 5F442D51
-P 2700 4000
-F 0 "Q1" H 2891 4046 50  0000 L CNN
-F 1 "BC817" H 2891 3955 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 2900 3925 50  0001 L CIN
-F 3 "http://www.fairchildsemi.com/ds/BC/BC817.pdf" H 2700 4000 50  0001 L CNN
-	1    2700 4000
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R1
-U 1 1 5F443DCA
-P 2050 4000
-F 0 "R1" V 1843 4000 50  0000 C CNN
-F 1 "10k" V 1934 4000 50  0000 C CNN
-F 2 "" V 1980 4000 50  0001 C CNN
-F 3 "~" H 2050 4000 50  0001 C CNN
-	1    2050 4000
-	0    1    1    0   
-$EndComp
-Text GLabel 1250 4000 0    50   Input ~ 0
+Text GLabel 3950 5250 0    50   Input ~ 0
 ENABLE
+NoConn ~ 10300 850 
 Wire Wire Line
-	1250 4000 1900 4000
-Wire Wire Line
-	2200 4000 2500 4000
-$Comp
-L power:GNDREF #PWR?
-U 1 1 5F457F0B
-P 2800 4450
-F 0 "#PWR?" H 2800 4200 50  0001 C CNN
-F 1 "GNDREF" H 2805 4277 50  0000 C CNN
-F 2 "" H 2800 4450 50  0001 C CNN
-F 3 "" H 2800 4450 50  0001 C CNN
-	1    2800 4450
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2800 4200 2800 4450
-$Comp
-L power:+5V #PWR?
-U 1 1 5F464BF7
-P 2800 3150
-F 0 "#PWR?" H 2800 3000 50  0001 C CNN
-F 1 "+5V" H 2815 3323 50  0000 C CNN
-F 2 "" H 2800 3150 50  0001 C CNN
-F 3 "" H 2800 3150 50  0001 C CNN
-	1    2800 3150
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R3
-U 1 1 5F46BF21
-P 2800 3400
-F 0 "R3" H 2870 3446 50  0000 L CNN
-F 1 "1k" H 2870 3355 50  0000 L CNN
-F 2 "" V 2730 3400 50  0001 C CNN
-F 3 "~" H 2800 3400 50  0001 C CNN
-	1    2800 3400
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2800 3250 2800 3150
-Wire Wire Line
-	2800 3550 2800 3650
-$Comp
-L Transistor_BJT:BC817 Q2
-U 1 1 5F472D79
-P 4250 3650
-F 0 "Q2" H 4441 3696 50  0000 L CNN
-F 1 "BC817" H 4441 3605 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 4450 3575 50  0001 L CIN
-F 3 "http://www.fairchildsemi.com/ds/BC/BC817.pdf" H 4250 3650 50  0001 L CNN
-	1    4250 3650
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R4
-U 1 1 5F475DF8
-P 3600 3650
-F 0 "R4" V 3393 3650 50  0000 C CNN
-F 1 "10k" V 3484 3650 50  0000 C CNN
-F 2 "" V 3530 3650 50  0001 C CNN
-F 3 "~" H 3600 3650 50  0001 C CNN
-	1    3600 3650
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	3750 3650 4050 3650
-Connection ~ 2800 3650
-Wire Wire Line
-	2800 3650 2800 3800
-$Comp
-L power:+5V #PWR?
-U 1 1 5F480A8D
-P 4350 3150
-F 0 "#PWR?" H 4350 3000 50  0001 C CNN
-F 1 "+5V" H 4365 3323 50  0000 C CNN
-F 2 "" H 4350 3150 50  0001 C CNN
-F 3 "" H 4350 3150 50  0001 C CNN
-	1    4350 3150
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4350 3450 4350 3250
-$Comp
-L Transistor_BJT:BC817 Q3
-U 1 1 5F489926
-P 3800 4550
-F 0 "Q3" H 3991 4596 50  0000 L CNN
-F 1 "BC817" H 3991 4505 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 4000 4475 50  0001 L CIN
-F 3 "http://www.fairchildsemi.com/ds/BC/BC817.pdf" H 3800 4550 50  0001 L CNN
-	1    3800 4550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R4
-U 1 1 5F48DFF3
-P 2750 4900
-F 0 "R4" V 2543 4900 50  0000 C CNN
-F 1 "10k" V 2634 4900 50  0000 C CNN
-F 2 "" V 2680 4900 50  0001 C CNN
-F 3 "~" H 2750 4900 50  0001 C CNN
-	1    2750 4900
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	2900 4900 3450 4900
-Wire Wire Line
-	3450 4900 3450 4550
-Wire Wire Line
-	3450 4550 3600 4550
-$Comp
-L Device:R R5
-U 1 1 5F49742B
-P 3900 5250
-F 0 "R5" H 3970 5296 50  0000 L CNN
-F 1 "1k" H 3970 5205 50  0000 L CNN
-F 2 "" V 3830 5250 50  0001 C CNN
-F 3 "~" H 3900 5250 50  0001 C CNN
-	1    3900 5250
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3900 5400 3900 5500
-Wire Wire Line
-	3900 4750 3900 4850
-Wire Wire Line
-	3900 4350 3900 4050
-Wire Wire Line
-	3900 4050 4900 4050
-Wire Wire Line
-	4900 4050 4900 3250
-Wire Wire Line
-	4900 3250 4350 3250
-Connection ~ 4350 3250
-Wire Wire Line
-	4350 3250 4350 3150
-Wire Wire Line
-	3900 4850 4350 4850
-Wire Wire Line
-	4800 4850 4800 4400
-Wire Wire Line
-	4800 4400 6050 4400
-Connection ~ 3900 4850
-Wire Wire Line
-	3900 4850 3900 5100
-$Comp
-L power:GNDREF #PWR?
-U 1 1 5F4A5D67
-P 3900 5500
-F 0 "#PWR?" H 3900 5250 50  0001 C CNN
-F 1 "GNDREF" H 3905 5327 50  0000 C CNN
-F 2 "" H 3900 5500 50  0001 C CNN
-F 3 "" H 3900 5500 50  0001 C CNN
-	1    3900 5500
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4350 3850 4350 4850
-Connection ~ 4350 4850
-Wire Wire Line
-	4350 4850 4800 4850
-Wire Wire Line
-	2800 3650 3450 3650
-$Comp
-L Transistor_BJT:BC817 Q4
-U 1 1 5F4B2676
-P 4350 6100
-F 0 "Q4" H 4541 6146 50  0000 L CNN
-F 1 "BC817" H 4541 6055 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 4550 6025 50  0001 L CIN
-F 3 "http://www.fairchildsemi.com/ds/BC/BC817.pdf" H 4350 6100 50  0001 L CNN
-	1    4350 6100
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R7
-U 1 1 5F4B267C
-P 3700 6100
-F 0 "R7" V 3493 6100 50  0000 C CNN
-F 1 "10k" V 3584 6100 50  0000 C CNN
-F 2 "" V 3630 6100 50  0001 C CNN
-F 3 "~" H 3700 6100 50  0001 C CNN
-	1    3700 6100
-	0    1    1    0   
-$EndComp
-Text GLabel 2900 6100 0    50   Input ~ 0
-ENABLE
-Wire Wire Line
-	2900 6100 3550 6100
-Wire Wire Line
-	3850 6100 4150 6100
-$Comp
-L power:GNDREF #PWR?
-U 1 1 5F4B2685
-P 4450 6550
-F 0 "#PWR?" H 4450 6300 50  0001 C CNN
-F 1 "GNDREF" H 4455 6377 50  0000 C CNN
-F 2 "" H 4450 6550 50  0001 C CNN
-F 3 "" H 4450 6550 50  0001 C CNN
-	1    4450 6550
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4450 6300 4450 6550
-$Comp
-L power:+5V #PWR?
-U 1 1 5F4B8840
-P 4450 5200
-F 0 "#PWR?" H 4450 5050 50  0001 C CNN
-F 1 "+5V" H 4465 5373 50  0000 C CNN
-F 2 "" H 4450 5200 50  0001 C CNN
-F 3 "" H 4450 5200 50  0001 C CNN
-	1    4450 5200
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R6
-U 1 1 5F4B8846
-P 4450 5450
-F 0 "R6" H 4520 5496 50  0000 L CNN
-F 1 "1k" H 4520 5405 50  0000 L CNN
-F 2 "" V 4380 5450 50  0001 C CNN
-F 3 "~" H 4450 5450 50  0001 C CNN
-	1    4450 5450
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4450 5300 4450 5200
-Wire Wire Line
-	4450 5600 4450 5700
-Wire Wire Line
-	4450 5700 5250 5700
-Wire Wire Line
-	5250 5700 5250 5000
-Wire Wire Line
-	5250 5000 6050 5000
-Connection ~ 4450 5700
-Wire Wire Line
-	4450 5700 4450 5900
-Wire Wire Line
-	5450 4700 6050 4700
-NoConn ~ 10150 1250
-Wire Wire Line
-	10150 1250 10300 1250
+	10300 850  10450 850 
 NoConn ~ 7850 2450
 Wire Wire Line
 	7850 2450 7750 2450
 Wire Wire Line
 	7750 2450 7750 2300
+Wire Wire Line
+	8450 2000 8450 2150
+$Comp
+L power:GND #PWR?
+U 1 1 5F3EBE5F
+P 8450 2150
+F 0 "#PWR?" H 8450 1900 50  0001 C CNN
+F 1 "GND" H 8455 1977 50  0000 C CNN
+F 2 "" H 8450 2150 50  0001 C CNN
+F 3 "" H 8450 2150 50  0001 C CNN
+	1    8450 2150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F3FA9D5
+P 5050 2100
+F 0 "#PWR?" H 5050 1850 50  0001 C CNN
+F 1 "GND" H 5055 1927 50  0000 C CNN
+F 2 "" H 5050 2100 50  0001 C CNN
+F 3 "" H 5050 2100 50  0001 C CNN
+	1    5050 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F430DB7
+P 6750 5700
+F 0 "#PWR?" H 6750 5450 50  0001 C CNN
+F 1 "GND" H 6755 5527 50  0000 C CNN
+F 2 "" H 6750 5700 50  0001 C CNN
+F 3 "" H 6750 5700 50  0001 C CNN
+	1    6750 5700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F439DA2
+P 9400 5100
+F 0 "#PWR?" H 9400 4850 50  0001 C CNN
+F 1 "GND" H 9405 4927 50  0000 C CNN
+F 2 "" H 9400 5100 50  0001 C CNN
+F 3 "" H 9400 5100 50  0001 C CNN
+	1    9400 5100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9100 5100 9400 5100
+$Comp
+L Connector_Generic:Conn_02x08_Odd_Even J1
+U 1 1 5F44C7CF
+P 10400 3350
+F 0 "J1" H 10450 3775 50  0000 C CNN
+F 1 "Conn_02x16" H 10450 3776 50  0001 C CNN
+F 2 "" H 10400 3350 50  0001 C CNN
+F 3 "~" H 10400 3350 50  0001 C CNN
+	1    10400 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6750 3500 6750 3900
+$Comp
+L power:GND #PWR?
+U 1 1 5F4783A7
+P 2400 2000
+F 0 "#PWR?" H 2400 1750 50  0001 C CNN
+F 1 "GND" H 2405 1827 50  0000 C CNN
+F 2 "" H 2400 2000 50  0001 C CNN
+F 3 "" H 2400 2000 50  0001 C CNN
+	1    2400 2000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2400 1900 2400 2000
+$Comp
+L Connector_Generic:Conn_01x10 J3
+U 1 1 5F486E94
+P 10650 2200
+F 0 "J3" H 10730 2146 50  0000 L CNN
+F 1 "Conn_01x10" H 10730 2101 50  0001 L CNN
+F 2 "" H 10650 2200 50  0001 C CNN
+F 3 "~" H 10650 2200 50  0001 C CNN
+	1    10650 2200
+	1    0    0    -1  
+$EndComp
+Text GLabel 10450 2300 0    50   Input ~ 0
+MISO
+NoConn ~ 10300 2000
+NoConn ~ 10300 2100
+Wire Wire Line
+	10300 2000 10450 2000
+Wire Wire Line
+	10300 2100 10450 2100
+NoConn ~ 10300 2600
+NoConn ~ 10300 2700
+Wire Wire Line
+	10300 2600 10450 2600
+Wire Wire Line
+	10300 2700 10450 2700
+$Comp
+L Connector_Generic:Conn_01x08 J4
+U 1 1 5F4DA758
+P 10650 1150
+F 0 "J4" H 10730 1096 50  0000 L CNN
+F 1 "Conn_01x08" H 10730 1051 50  0001 L CNN
+F 2 "" H 10650 1150 50  0001 C CNN
+F 3 "~" H 10650 1150 50  0001 C CNN
+	1    10650 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x08 J5
+U 1 1 5F4EDD0B
+P 9800 1150
+F 0 "J5" H 9880 1096 50  0000 L CNN
+F 1 "Conn_01x08" H 9880 1051 50  0001 L CNN
+F 2 "" H 9800 1150 50  0001 C CNN
+F 3 "~" H 9800 1150 50  0001 C CNN
+	1    9800 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F3F6365
+P 9250 1400
+F 0 "#PWR?" H 9250 1150 50  0001 C CNN
+F 1 "GND" H 9255 1227 50  0000 C CNN
+F 2 "" H 9250 1400 50  0001 C CNN
+F 3 "" H 9250 1400 50  0001 C CNN
+	1    9250 1400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9600 1350 9500 1350
+Wire Wire Line
+	9250 1350 9250 1400
+Wire Wire Line
+	9600 1450 9500 1450
+Wire Wire Line
+	9500 1450 9500 1350
+Connection ~ 9500 1350
+Wire Wire Line
+	9500 1350 9250 1350
+NoConn ~ 9450 1550
+Wire Wire Line
+	9450 1550 9600 1550
+NoConn ~ 9450 1150
+Wire Wire Line
+	9450 1150 9600 1150
+NoConn ~ 9450 1050
+Wire Wire Line
+	9450 1050 9600 1050
+NoConn ~ 9450 950 
+Wire Wire Line
+	9450 950  9600 950 
+NoConn ~ 9450 850 
+Wire Wire Line
+	9450 850  9600 850 
+$Comp
+L power:+27V #PWR?
+U 1 1 5F539AF9
+P 6750 3500
+F 0 "#PWR?" H 6750 3350 50  0001 C CNN
+F 1 "+27V" H 6765 3673 50  0000 C CNN
+F 2 "" H 7000 3550 50  0001 C CNN
+F 3 "" H 7000 3550 50  0001 C CNN
+	1    6750 3500
+	1    0    0    -1  
+$EndComp
+Text GLabel 10450 1150 0    50   Output ~ 0
+ENABLE
+$Comp
+L Connector:Conn_Coaxial J6
+U 1 1 5F3E1428
+P 8800 4450
+F 0 "J6" H 8900 4379 50  0000 L CNN
+F 1 "Conn_Coaxial" H 8900 4334 50  0001 L CNN
+F 2 "" H 8800 4450 50  0001 C CNN
+F 3 " ~" H 8800 4450 50  0001 C CNN
+	1    8800 4450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8150 4000 8600 4000
+Wire Wire Line
+	8600 4000 8600 4450
+Connection ~ 8150 4000
+Wire Wire Line
+	8150 5050 8800 5050
+Wire Wire Line
+	8800 5050 8800 4650
+Connection ~ 8150 5050
+Wire Wire Line
+	5550 4400 5550 4350
+$Comp
+L power:+5V #PWR?
+U 1 1 5F4137B3
+P 5550 4350
+F 0 "#PWR?" H 5550 4200 50  0001 C CNN
+F 1 "+5V" H 5565 4523 50  0000 C CNN
+F 2 "" H 5550 4350 50  0001 C CNN
+F 3 "" H 5550 4350 50  0001 C CNN
+	1    5550 4350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5550 4400 6050 4400
+$Comp
+L power:+5V #PWR?
+U 1 1 5F43BC51
+P 4850 4600
+F 0 "#PWR?" H 4850 4450 50  0001 C CNN
+F 1 "+5V" H 4865 4773 50  0000 C CNN
+F 2 "" H 4850 4600 50  0001 C CNN
+F 3 "" H 4850 4600 50  0001 C CNN
+	1    4850 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F441BC7
+P 4850 5700
+F 0 "#PWR?" H 4850 5450 50  0001 C CNN
+F 1 "GND" H 4855 5527 50  0000 C CNN
+F 2 "" H 4850 5700 50  0001 C CNN
+F 3 "" H 4850 5700 50  0001 C CNN
+	1    4850 5700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5650 4700 6050 4700
+$Comp
+L power:PWR_FLAG #FLG?
+U 1 1 5F461616
+P 9350 1250
+F 0 "#FLG?" H 9350 1325 50  0001 C CNN
+F 1 "PWR_FLAG" H 9350 1423 50  0000 C CNN
+F 2 "" H 9350 1250 50  0001 C CNN
+F 3 "~" H 9350 1250 50  0001 C CNN
+	1    9350 1250
+	1    0    0    -1  
+$EndComp
+Connection ~ 9350 1250
+Wire Wire Line
+	9050 1250 9350 1250
+$Comp
+L Device:R R2
+U 1 1 5F4700BD
+P 8950 5100
+F 0 "R2" V 9157 5100 50  0000 C CNN
+F 1 "0.1R" V 9066 5100 50  0000 C CNN
+F 2 "" V 8880 5100 50  0001 C CNN
+F 3 "~" H 8950 5100 50  0001 C CNN
+	1    8950 5100
+	0    1    -1   0   
+$EndComp
+Text GLabel 8000 5800 2    50   Output ~ 0
+TH_FLAG
+$Comp
+L Device:R R3
+U 1 1 5F480CFC
+P 7700 5500
+F 0 "R3" H 7630 5454 50  0000 R CNN
+F 1 "10K" H 7630 5545 50  0000 R CNN
+F 2 "" V 7630 5500 50  0001 C CNN
+F 3 "~" H 7700 5500 50  0001 C CNN
+	1    7700 5500
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7450 5100 8800 5100
+$Comp
+L power:+5V #PWR?
+U 1 1 5F4B047E
+P 7700 5350
+F 0 "#PWR?" H 7700 5200 50  0001 C CNN
+F 1 "+5V" H 7715 5523 50  0000 C CNN
+F 2 "" H 7700 5350 50  0001 C CNN
+F 3 "" H 7700 5350 50  0001 C CNN
+	1    7700 5350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7700 5650 7700 5800
+Text GLabel 10450 1050 0    50   Input ~ 0
+TH_FLAG
+Wire Wire Line
+	7450 5200 7550 5200
+Wire Wire Line
+	7700 5800 8000 5800
+Wire Wire Line
+	7550 5800 7700 5800
+Wire Wire Line
+	7550 5200 7550 5800
+Connection ~ 7700 5800
+$Comp
+L Connector:Conn_01x01_Female J6
+U 1 1 5F505205
+P 9700 2100
+F 0 "J6" H 9728 2080 50  0000 L CNN
+F 1 "Conn_01x01_Female" H 9728 2035 50  0001 L CNN
+F 2 "" H 9700 2100 50  0001 C CNN
+F 3 "~" H 9700 2100 50  0001 C CNN
+	1    9700 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+27V #PWR?
+U 1 1 5F506633
+P 9200 2000
+F 0 "#PWR?" H 9200 1850 50  0001 C CNN
+F 1 "+27V" H 9215 2173 50  0000 C CNN
+F 2 "" H 9450 2050 50  0001 C CNN
+F 3 "" H 9450 2050 50  0001 C CNN
+	1    9200 2000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9200 2000 9200 2100
+Wire Wire Line
+	9200 2100 9450 2100
+$Comp
+L power:PWR_FLAG #FLG?
+U 1 1 5F50D140
+P 9450 2100
+F 0 "#FLG?" H 9450 2175 50  0001 C CNN
+F 1 "PWR_FLAG" H 9450 2273 50  0000 C CNN
+F 2 "" H 9450 2100 50  0001 C CNN
+F 3 "~" H 9450 2100 50  0001 C CNN
+	1    9450 2100
+	1    0    0    -1  
+$EndComp
+Connection ~ 9450 2100
+Wire Wire Line
+	9450 2100 9500 2100
+$Comp
+L Transistor_BJT:BC548 Q1
+U 1 1 5F515402
+P 3950 4700
+F 0 "Q1" H 4141 4746 50  0000 L CNN
+F 1 "BC548" H 4141 4655 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline" H 4150 4625 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BC/BC547.pdf" H 3950 4700 50  0001 L CNN
+	1    3950 4700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4850 5450 4850 5700
+Wire Wire Line
+	4850 5050 4850 5000
+Wire Wire Line
+	4850 5000 6050 5000
 $EndSCHEMATC
