@@ -664,17 +664,6 @@ Wire Wire Line
 	9450 2100 9500 2100
 Wire Wire Line
 	4850 5000 6050 5000
-$Comp
-L 74xGxx:74AUP1G04 U3
-U 1 1 5F540C57
-P 4600 5000
-F 0 "U3" H 4575 5175 50  0000 C CNN
-F 1 "74AUP1G04" H 4575 5176 50  0001 C CNN
-F 2 "" H 4600 5000 50  0001 C CNN
-F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 4600 5000 50  0001 C CNN
-	1    4600 5000
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	3900 5000 4300 5000
 Wire Wire Line
@@ -692,4 +681,15 @@ F 3 "" H 4600 5350 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4600 5100 4600 5350
+$Comp
+L 74xGxx:74LVC1G04 U3
+U 1 1 5F56311C
+P 4600 5000
+F 0 "U3" H 4575 5175 50  0000 C CNN
+F 1 "74LVC1G04" H 4575 5176 50  0001 C CNN
+F 2 "" H 4600 5000 50  0001 C CNN
+F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 4600 5000 50  0001 C CNN
+	1    4600 5000
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
