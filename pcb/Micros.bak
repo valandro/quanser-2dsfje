@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:Micros-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -658,7 +657,7 @@ U 1 1 5F48F67C
 P 6250 2050
 F 0 "U2" H 6250 2525 50  0000 C CNN
 F 1 "LS7366R" H 6250 2526 50  0001 C CNN
-F 2 "footNovo:DIP-14_W7.62mm" H 6250 2050 50  0001 L BNN
+F 2 "Connector_PinHeader_2.00mm:PinHeader_2x07_P2.00mm_Vertical" H 6250 2050 50  0001 L BNN
 F 3 "" H 6250 2050 50  0001 C CNN
 	1    6250 2050
 	1    0    0    -1  
