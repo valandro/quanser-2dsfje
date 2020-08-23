@@ -324,11 +324,11 @@ X ~ 5 300 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# power_+27V
+# power_+28V
 #
-DEF power_+27V #PWR 0 0 N N 1 F P
+DEF power_+28V #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -150 50 H I C CNN
-F1 "power_+27V" 0 150 50 H V C CNN
+F1 "power_+28V" 0 150 50 H V C CNN
 F2 "" 250 50 50 H I C CNN
 F3 "" 250 50 50 H I C CNN
 DRAW
