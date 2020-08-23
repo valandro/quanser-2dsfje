@@ -25,7 +25,6 @@ src/documentation/generatedDocumentation/
 *.pch
 
 # Libraries
-*.lib
 *.a
 *.la
 *.lo
