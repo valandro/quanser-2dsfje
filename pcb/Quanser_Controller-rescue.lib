@@ -1,11 +1,11 @@
 EESchema-LIBRARY Version 2.4
 #encoding utf-8
 #
-# +28V-power
+# +27V-+27v
 #
-DEF +28V-power #PWR 0 0 Y Y 1 F P
+DEF +27V-+27v #PWR 0 0 N N 1 F P
 F0 "#PWR" 0 -150 50 H I C CNN
-F1 "+28V-power" 0 150 50 H V C CNN
+F1 "+27V-+27v" 0 150 50 H V C CNN
 F2 "" 250 50 50 H I C CNN
 F3 "" 250 50 50 H I C CNN
 DRAW

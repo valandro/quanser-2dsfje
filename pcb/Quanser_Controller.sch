@@ -1,5 +1,6 @@
 EESchema Schematic File Version 4
-EELAYER 30 0
+LIBS:Quanser_Controller-cache
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -588,7 +589,7 @@ Wire Wire Line
 	2400 1850 2400 2000
 Connection ~ 2400 1850
 $Comp
-L +27v:+27V #PWR0110
+L Quanser_Controller-rescue:+27V-+27v #PWR0110
 U 1 1 5F54B278
 P 4850 2850
 F 0 "#PWR0110" H 4850 2700 50  0001 C CNN
@@ -599,7 +600,7 @@ F 3 "" H 5100 2900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +27v:+27V #PWR0114
+L Quanser_Controller-rescue:+27V-+27v #PWR0114
 U 1 1 5F54BCD2
 P 9150 2050
 F 0 "#PWR0114" H 9150 1900 50  0001 C CNN
