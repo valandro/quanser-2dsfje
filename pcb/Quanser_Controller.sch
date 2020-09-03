@@ -1,5 +1,6 @@
 EESchema Schematic File Version 4
-EELAYER 30 0
+LIBS:Quanser_Controller-cache
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -475,7 +476,7 @@ F 3 "~" H 6650 5900 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	6400 5500 7750 5500
+	6400 5500 7350 5500
 $Comp
 L power:+5V #PWR0113
 U 1 1 5F4B047E
@@ -727,10 +728,10 @@ $EndComp
 Wire Wire Line
 	5700 4000 5700 4300
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0119
 U 1 1 5F586E03
 P 2600 6400
-F 0 "#PWR?" H 2600 6150 50  0001 C CNN
+F 0 "#PWR0119" H 2600 6150 50  0001 C CNN
 F 1 "GND" H 2605 6227 50  0000 C CNN
 F 2 "" H 2600 6400 50  0001 C CNN
 F 3 "" H 2600 6400 50  0001 C CNN
@@ -811,10 +812,10 @@ F 3 "~" H 3850 4950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0120
 U 1 1 5F68BB45
 P 3850 5150
-F 0 "#PWR?" H 3850 4900 50  0001 C CNN
+F 0 "#PWR0120" H 3850 4900 50  0001 C CNN
 F 1 "GND" H 3855 4977 50  0000 C CNN
 F 2 "" H 3850 5150 50  0001 C CNN
 F 3 "" H 3850 5150 50  0001 C CNN
@@ -828,4 +829,24 @@ Wire Wire Line
 Wire Wire Line
 	3300 4800 3850 4800
 Connection ~ 3850 4800
+Text GLabel 8200 1100 0    50   Output ~ 0
+AD
+Text GLabel 7350 5700 3    50   Output ~ 0
+AD
+Wire Wire Line
+	7350 5500 7350 5700
+Connection ~ 7350 5500
+Wire Wire Line
+	7350 5500 7750 5500
+$Comp
+L Connector_Generic:Conn_01x06 AD1
+U 1 1 5F510A72
+P 8400 800
+F 0 "AD1" H 8480 746 50  0000 L CNN
+F 1 "Conn_01x06" H 8480 701 50  0001 L CNN
+F 2 "Connector_PinHeader_2.00mm:PinHeader_1x06_P2.00mm_Vertical" H 8400 800 50  0001 C CNN
+F 3 "~" H 8400 800 50  0001 C CNN
+	1    8400 800 
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
