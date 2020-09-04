@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:Quanser_Controller-cache
-EELAYER 26 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -18,7 +17,7 @@ Text GLabel 10700 3250 2    50   Output ~ 0
 ELB1
 Text GLabel 10700 3350 2    50   Output ~ 0
 ELB2
-Text GLabel 10450 1450 0    50   Output ~ 0
+Text GLabel 10450 1050 0    50   Output ~ 0
 PWM
 Text GLabel 10450 1250 0    50   Input ~ 0
 ELB1
@@ -490,7 +489,7 @@ F 3 "" H 6650 5750 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	6650 6050 6650 6200
-Text GLabel 10450 1050 0    50   Input ~ 0
+Text GLabel 10450 1450 0    50   Input ~ 0
 TH_FLAG
 Wire Wire Line
 	6400 5600 6500 5600

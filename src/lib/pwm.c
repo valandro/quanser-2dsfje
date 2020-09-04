@@ -2,15 +2,34 @@
 #include <unistd.h>
 #include <stdio.h>
 
-#include <utils.h>
+#include <pwm.h>
+
+/**
+ 	Setup PWM for initialization
+**/
+void pwm_init()
+{
+    pwm_write_period(PWM_DUTY_CYCLE_PATH, PWM_PERIOD);
+    pwm_write_duty_cycle(PWM_DUTY_CYCLE_PATH, 0.5, PWM_PERIOD);
+    pwm_write_enable(PWM_ENABLE_PATH, 1);
+}
+
+/**
+ 	Stop generating PWM signal by writing 0 into enable 
+**/
+void pwm_stop()
+{
+    pwm_write_enable(PWM_ENABLE_PATH, 0);
+}
 
 /**
 	Convert frequency Hz to Period ns
 	@param frequency: the frequency in Hz
 	@return: the period in nano-seconds
 **/
-int pwm_frequency_to_period(const int frequency) {
-    return (int) (1000000000 / frequency);
+int pwm_frequency_to_period(const int frequency)
+{
+    return (int)(1000000000 / frequency);
 }
 
 /**
@@ -19,24 +38,29 @@ int pwm_frequency_to_period(const int frequency) {
     @param enable: the enable value, either 1 or 0
     @return: the number of bytes written
 **/
-int pwm_write_enable(const char path[], const int enable) {
+int pwm_write_enable(const char path[], const int enable)
+{
     int pwm;
     int n;
     char flag;
 
-    if (enable == 1) {
+    if (enable == 1)
+    {
         flag = '1';
-    } else {
+    }
+    else
+    {
         flag = '0';
     }
 
-    if ((pwm = open(path, O_WRONLY)) == -1) {
+    if ((pwm = open(path, O_WRONLY)) == -1)
+    {
         return -1;
     }
 
     lseek(pwm, 0, SEEK_SET);
-	n = write(pwm, &flag, sizeof flag);
-    
+    n = write(pwm, &flag, sizeof flag);
+
     close(pwm);
     return n;
 }
@@ -47,21 +71,22 @@ int pwm_write_enable(const char path[], const int enable) {
     @param period: the period in nano-seconds
     @return: the number of bytes written
 **/
-int pwm_write_period(const char path[], const int period) {
+int pwm_write_period(const char path[], const int period)
+{
     int pwm;
     int n;
     char data[80];
 
-    if ((pwm = open(path, O_WRONLY)) == -1) {
+    if ((pwm = open(path, O_WRONLY)) == -1)
+    {
         return -1;
     }
 
-
     snprintf(data, sizeof data, "%d", period);
-    
+
     lseek(pwm, 0, SEEK_SET);
-	n = write(pwm, &data, sizeof data);
-    
+    n = write(pwm, &data, sizeof data);
+
     close(pwm);
     return n;
 }
@@ -73,21 +98,22 @@ int pwm_write_period(const char path[], const int period) {
     @param period: the period in nano-seconds
     @return: the number of bytes written
 **/
-int pwm_write_duty_cycle(const char path[], const float duty_cycle, const int period) {
+int pwm_write_duty_cycle(const char path[], const float duty_cycle, const int period)
+{
     int pwm;
     int n;
     char data[80];
 
-    if ((pwm = open(path, O_WRONLY)) == -1) {
+    if ((pwm = open(path, O_WRONLY)) == -1)
+    {
         return -1;
-    }    
+    }
 
-    snprintf(data, sizeof data, "%d", (int) (duty_cycle * period));
-    
+    snprintf(data, sizeof data, "%d", (int)(duty_cycle * period));
+
     lseek(pwm, 0, SEEK_SET);
-	n = write(pwm, &data, sizeof data);
-    
+    n = write(pwm, &data, sizeof data);
+
     close(pwm);
     return n;
 }
-
