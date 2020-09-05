@@ -21,10 +21,20 @@
  * @brief Source file for Decoder utilized in quanser-2dsfje project for ENG10032
  */
 
+// Project headers
 #include "decoder.h"
+#include "spi_configuration_flags.h"
+#include "gpio.h"
+// C headers
+#include <stdio.h>
+#include <stdint.h>
+#include <linux/spi/spidev.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/ioctl.h>
 
 /** @brief File descriptor for opening and gathering file data in device. Initialized with -1 (invalid descriptor)*/
-int fileDescriptor = -1;
+int file_descriptor = -1;
 
 /*
 * @brief Function that initiates Decoder and SPI interface configuration
@@ -42,31 +52,31 @@ int decoder_init()
   uint32_t spiSpeed = SPI_SPEED; // SPI Speed
 
   // Opening the device first
-  if((fileDescriptor = open(SPI_DEVICE_PATH,O_RDWR)) == DEVICE_READING_WRITING_ERROR)
+  if((file_descriptor = open(SPI_DEVICE_PATH,O_RDWR)) == DEVICE_READING_WRITING_ERROR)
   {
     printf("SPI ERROR: Cannot open device.\n");
     return DECODER_INIT_ERROR;
   }
   // Writes SPI mode
-  if(ioctl(fileDescriptor,SPI_IOC_WR_MODE,&spiMode) == DEVICE_READING_WRITING_ERROR)
+  if(ioctl(file_descriptor,SPI_IOC_WR_MODE,&spiMode) == DEVICE_READING_WRITING_ERROR)
   {
     printf("SPI ERROR: Cannot write clock mode on device.\n");
     return DECODER_INIT_ERROR;
   }
   // Writing SPI Clock
-  if(ioctl(fileDescriptor, SPI_IOC_WR_MAX_SPEED_HZ, &spiSpeed) == DEVICE_READING_WRITING_ERROR)
+  if(ioctl(file_descriptor, SPI_IOC_WR_MAX_SPEED_HZ, &spiSpeed) == DEVICE_READING_WRITING_ERROR)
   {
     printf("SPI ERROR: Cannot write SPI Speed on device.\n");
     return DECODER_INIT_ERROR;
   }
   // Writing LSB on device
-  if(ioctl(fileDescriptor, SPI_IOC_WR_LSB_FIRST, &lsb) == DEVICE_READING_WRITING_ERROR)
+  if(ioctl(file_descriptor, SPI_IOC_WR_LSB_FIRST, &lsb) == DEVICE_READING_WRITING_ERROR)
   {
     printf("SPI ERROR: Cannot write SPI lsb first on device.\n");
     return DECODER_INIT_ERROR;
   }
   // Writing bits per word value
-  if(ioctl(fileDescriptor,SPI_IOC_WR_BITS_PER_WORD, &bitsPerWord) == DEVICE_READING_WRITING_ERROR)
+  if(ioctl(file_descriptor,SPI_IOC_WR_BITS_PER_WORD, &bitsPerWord) == DEVICE_READING_WRITING_ERROR)
   {
     printf("SPI ERROR: Cannot write bits per word value on device.\n");
     return DECODER_INIT_ERROR;
@@ -170,14 +180,14 @@ int write_spi(unsigned char op_code, unsigned char write_data)
   }
 
   // Writing opcode, only one byte
-  if (write(fd, &op_code, sizeof(op_code)) < 0)
+  if (write(file_descriptor, &op_code, sizeof(op_code)) < 0)
   {
     printf("SPI ERROR: Cannot write opcode of SPI.\n");
     return -1;
   }
 
   // Writing data, only one byte
-  if(write(fd, &write_data, sizeof(write_data)) < 0)
+  if(write(file_descriptor, &write_data, sizeof(write_data)) < 0)
   {
     printf("SPI ERROR: Cannot write data of SPI.\n");
     return -1;
@@ -216,6 +226,7 @@ int read_spi()
     return -1;
   }
 
+  return 1;
 }
 
 
@@ -232,7 +243,8 @@ int clear_counter()
   }
 
   // Writing data, only one byte
-  if(write(fd, CLR_CNTR, sizeof(CLR_CNTR)) < 0)
+  unsigned char op_code = CLR_CNTR;
+  if(write(file_descriptor, &op_code, sizeof(op_code)) < 0)
   {
     return -1;
   }

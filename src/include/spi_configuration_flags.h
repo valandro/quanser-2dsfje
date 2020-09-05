@@ -6,7 +6,7 @@
 // (at your option) any later version.
 //
 // This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// but WITHOUT ANY WARRANTY without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //
@@ -44,22 +44,22 @@
 //Clock filter modes
 #define FILTER_1 0x00 //filter clock frequncy division factor 1
 #define FILTER_2 0x80 //filter clock frequncy division factor 2
-/* **MDR1 configuration data; any of these***
+/* **MDR1 configuration data any of these***
  ***data segments can be ORed together***/
 //Flag modes
 #define NO_FLAGS 0x00 //all flags disabled
-#define IDX_FLAG 0x10; //IDX flag
-#define CMP_FLAG 0x20; //CMP flag
-#define BW_FLAG 0x40; //BW flag
-#define CY_FLAG 0x80; //CY flag
+#define IDX_FLAG 0x10 //IDX flag
+#define CMP_FLAG 0x20 //CMP flag
+#define BW_FLAG 0x40 //BW flag
+#define CY_FLAG 0x80 //CY flag
 //1 to 4 bytes data-width
-#define BYTE_4 0x00; //four byte mode
-#define BYTE_3 0x01; //three byte mode
-#define BYTE_2 0x02; //two byte mode
-#define BYTE_1 0x03; //one byte mode
+#define BYTE_4 0x00 //four byte mode
+#define BYTE_3 0x01 //three byte mode
+#define BYTE_2 0x02 //two byte mode
+#define BYTE_1 0x03 //one byte mode
 //Enable/disable counter
-#define EN_CNTR 0x00; //counting enabled
-#define DIS_CNTR 0x04; //counting disabled
+#define EN_CNTR 0x00 //counting enabled
+#define DIS_CNTR 0x04 //counting disabled
 
 /* LS7366R op-code list */
 #define CLR_MDR0 0x08
