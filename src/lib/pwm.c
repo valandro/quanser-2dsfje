@@ -11,8 +11,8 @@
 void pwm_init()
 {
     pwm_write_period(PWM_PERIOD_PATH, PWM_PERIOD);
-    // pwm_write_duty_cycle(PWM_DUTY_CYCLE_PATH, 0.5, PWM_PERIOD);
-    // pwm_write_enable(PWM_ENABLE_PATH, 1);
+    pwm_write_duty_cycle(PWM_DUTY_CYCLE_PATH, 0.5, PWM_PERIOD);
+    pwm_write_enable(PWM_ENABLE_PATH, 1);
 }
 
 /**
@@ -50,9 +50,11 @@ int pwm_write_enable(const char path[], const int enable)
     {
         flag = '1';
     }
-    else
+    else if (enable == 0)
     {
         flag = '0';
+    } else {
+        return -1;
     }
 
     if ((pwm = open(path, O_WRONLY)) == -1)
