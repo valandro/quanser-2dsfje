@@ -6,16 +6,18 @@
 
 /**
  	Setup PWM for initialization
+    \see See pwm.h for all constant values. 
 **/
 void pwm_init()
 {
-    pwm_write_period(PWM_DUTY_CYCLE_PATH, PWM_PERIOD);
-    pwm_write_duty_cycle(PWM_DUTY_CYCLE_PATH, 0.5, PWM_PERIOD);
-    pwm_write_enable(PWM_ENABLE_PATH, 1);
+    pwm_write_period(PWM_PERIOD_PATH, PWM_PERIOD);
+    // pwm_write_duty_cycle(PWM_DUTY_CYCLE_PATH, 0.5, PWM_PERIOD);
+    // pwm_write_enable(PWM_ENABLE_PATH, 1);
 }
 
 /**
- 	Stop generating PWM signal by writing 0 into enable 
+ 	This function stop the PWM signal gerenation by writing '0' into enable
+    \see See pwm.h for checking PWM_ENABLE_PATH value. 
 **/
 void pwm_stop()
 {
@@ -35,7 +37,7 @@ int pwm_frequency_to_period(const int frequency)
 /**
     Writes enable value to the pwm pin 
     @param path: the path to pwm file
-    @param enable: the enable value, either 1 or 0
+    @param enable: the enable value (int), either 1 or 0
     @return: the number of bytes written
 **/
 int pwm_write_enable(const char path[], const int enable)
