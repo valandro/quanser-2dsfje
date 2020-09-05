@@ -15,30 +15,39 @@
 
 
 /**
- * @file spi.h
+ * @file decoder.h
  * @author Lucas Augusto Tansini, Lucas Valandro da Rocha, Gustavo Francisco
  * @date Sept 2020
- * @brief Header file for SPI  utilized in quanser-2dsfje project for ENG10032
+ * @brief Header file for Decoder utilized in quanser-2dsfje project for ENG10032
  */
-#ifndef SPI_H
-#define SPI_H
+ #ifndef DECODER_H
+ #define DECODER_H
 
 
-#define SPI_DEVICE_PATH "/dev/spidev1.0"
+#define DEVICE_PATH "/dev/spidev1.0"
+#define SS_PATH "/sys/class/gpio/gpio10/value"
 #define DEVICE_READING_WRITING_ERROR -1
-#define SPI_RETURN_SUCCESS 1
+#define DECODER_INIT_SUCCESS 1
+#define DECODER_INIT_ERROR -1
 #define BITS_PER_WORD 8
+#define SPI_SPEED 8000000
+
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
 
-extern int spiInitiateComm(int spiFrequencyRate);
-
+ /*
+ extern int read_spi_reg()
+ extern int write_spi_Reg()
+ */
+extern int decoder_init();
+extern int spi_start();
+extern int spi_stop();
 
 #ifdef __cplusplus
 };
 #endif
 
-#endif //SPI_H
+#endif //DECODER_H

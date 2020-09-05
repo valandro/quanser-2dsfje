@@ -31,7 +31,7 @@ enum EPidControllerGains
     eKd
 };
 
-void setGainValue(EPidControllerGains gainType, double newGainValue);
+void set_gain_value(EPidControllerGains gainType, double newGainValue);
 
 
  #endif //PIDCONTROLLER_H

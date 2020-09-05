@@ -46,7 +46,7 @@ struct SPidController
 * @param newGainValue Value to set the selected gain.
 * @return void
 */
-void setGainValue(EPidControllerGains gainType, double newGainValue)
+void set_gain_value(EPidControllerGains gainType, double newGainValue)
 {
   switch(gainType)
   {
