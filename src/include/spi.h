@@ -15,23 +15,30 @@
 
 
 /**
- * @file pidController.h
+ * @file spi.h
  * @author Lucas Augusto Tansini, Lucas Valandro da Rocha, Gustavo Francisco
  * @date Sept 2020
- * @brief Header file for PID Controller utilized in quanser-2dsfje project for ENG10032
+ * @brief Header file for SPI  utilized in quanser-2dsfje project for ENG10032
  */
+#ifndef SPI_H
+#define SPI_H
 
- #ifndef PIDCONTROLLER_H
- #define PIDCONTROLLER_H
 
-enum EPidControllerGains
+#define SPI_DEVICE_PATH "/dev/spidev1.0"
+#define DEVICE_READING_WRITING_ERROR -1
+#define SPI_RETURN_SUCCESS 1
+#define BITS_PER_WORD 8
+
+#ifdef __cplusplus
+extern "C"
 {
-    eKp = 1,
-    eKi,
-    eKd
+#endif
+
+extern int spiInitiateComm(int spiFrequencyRate);
+
+
+#ifdef __cplusplus
 };
+#endif
 
-void setGainValue(EPidControllerGains gainType, double newGainValue);
-
-
- #endif //PIDCONTROLLER_H
+#endif //SPI_H
