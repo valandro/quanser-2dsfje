@@ -490,7 +490,7 @@ F 3 "" H 6650 5750 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	6650 6050 6650 6200
-Text GLabel 10450 1450 0    50   Input ~ 0
+Text GLabel 7600 1000 0    50   Input ~ 0
 TH_FLAG
 Wire Wire Line
 	6400 5600 6500 5600
@@ -829,7 +829,7 @@ Wire Wire Line
 Wire Wire Line
 	3300 4800 3850 4800
 Connection ~ 3850 4800
-Text GLabel 7600 1100 0    50   Output ~ 0
+Text GLabel 7600 1100 0    50   Input ~ 0
 AD
 Text GLabel 7350 5700 3    50   Output ~ 0
 AD
