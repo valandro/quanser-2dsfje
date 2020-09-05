@@ -17,38 +17,40 @@ case "$1" in
     case $boardId in
       "GalileoGen2")
 				############################################################################################
-				# IO1 input - ELB1 
+				# IO2 input - ELB1 
 				## Left Shifter GPIO
-				if [ ! -d /sys/class/gpio/gpio28 ] ; then
-					echo -n "28" > /sys/class/gpio/export
-				fi
-				echo -n "in" > /sys/class/gpio/gpio28/direction
-				echo -n "0" > /sys/class/gpio/gpio28/value
+				if [ ! -d /sys/class/gpio/gpio16 ] ; then
+					echo -n "16" > /sys/class/gpio/export
+
+				echo -n "in" > /sys/class/gpio/gpio16/direction
+				echo -n "0" > /sys/class/gpio/gpio16/value
 
 				## 22k Pull-up GPIO
-				if [ ! -d /sys/class/gpio/gpio29 ] ; then
-					echo -n "29" > /sys/class/gpio/export
+				if [ ! -d /sys/class/gpio/gpio17 ] ; then
+					echo -n "17" > /sys/class/gpio/export
 				fi
 
 				### No pull-up neither pull-down
-				echo -n "in" > /sys/class/gpio/gpio29/direction
+				echo -n "in" > /sys/class/gpio/gpio17/direction
 
 				## Pin Mux 1 GPIO
-				if [ ! -d /sys/class/gpio/gpio45 ] ; then
-					echo -n "45" > /sys/class/gpio/export
+				if [ ! -d /sys/class/gpio/gpio76 ] ; then
+					echo -n "76" > /sys/class/gpio/export
 				fi
 
-				echo -n "in" > /sys/class/gpio/gpio45/direction
-				echo -n "0" > /sys/class/gpio/gpio45/value
+				echo -n "in" > /sys/class/gpio/gpio76/direction
+				echo -n "0" > /sys/class/gpio/gpio76/value
 
 				## Linux
-				if [ ! -d /sys/class/gpio/gpio12 ] ; then
-					echo -n "12" > /sys/class/gpio/export
+				if [ ! -d /sys/class/gpio/gpio14 ] ; then
+					echo -n "14" > /sys/class/gpio/export
 				fi
 
+				echo -n "in" > /sys/class/gpio/gpio14/direction
+
 				## Permissions
-				chgrp gpio /sys/class/gpio/gpio12/value
-				chmod g+r /sys/class/gpio/gpio12/value
+				chgrp gpio /sys/class/gpio/gpio14/value
+				chmod g+r /sys/class/gpio/gpio14/value
 
 				############################################################################################
 				# IO2 input - ELB2
@@ -80,6 +82,7 @@ case "$1" in
 					echo -n "13" > /sys/class/gpio/export
 				fi
 
+				echo -n "in" > /sys/class/gpio/gpio13/direction
 				## Permissions
 				chgrp gpio /sys/class/gpio/gpio13/value
 				chmod g+r /sys/class/gpio/gpio13/value
@@ -129,17 +132,17 @@ case "$1" in
   stop)
     case $boardId in
       "GalileoGen2")
-				# IO1 input - ELB1
-				echo -n "in" > /sys/class/gpio/gpio28/direction
-				echo -n "1" > /sys/class/gpio/gpio28/value
-				echo -n "28" > /sys/class/gpio/unexport
-				echo -n "in" > /sys/class/gpio/gpio29/direction
-				echo -n "1" > /sys/class/gpio/gpio29/value
-				echo -n "29" > /sys/class/gpio/unexport
-				echo -n "in" > /sys/class/gpio/gpio45/direction
-				echo -n "1" > /sys/class/gpio/gpio45/value
-				echo -n "45" > /sys/class/gpio/unexport
-				echo -n "12" > /sys/class/gpio/unexport
+				# IO3 input - ELB1
+				echo -n "in" > /sys/class/gpio/gpio16/direction
+				echo -n "1" > /sys/class/gpio/gpio16/value
+				echo -n "16" > /sys/class/gpio/unexport
+				echo -n "in" > /sys/class/gpio/gpio17/direction
+				echo -n "1" > /sys/class/gpio/gpio17/value
+				echo -n "17" > /sys/class/gpio/unexport
+				echo -n "in" > /sys/class/gpio/gpio76/direction
+				echo -n "1" > /sys/class/gpio/gpio76/value
+				echo -n "76" > /sys/class/gpio/unexport
+				echo -n "14" > /sys/class/gpio/unexport
 				# IO2 input - ELB2
 				echo -n "in" > /sys/class/gpio/gpio34/direction
 				echo -n "1" > /sys/class/gpio/gpio34/value

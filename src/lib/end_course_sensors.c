@@ -1,10 +1,11 @@
+#include <gpio.h>
 #include <end_course_sensors.h>
 
 /*
     Paths to GPIO (Gen2)
 */
 static const char gpio_path[2][29] = {
-    "/sys/class/gpio/gpio12/value", // ELB1
+    "/sys/class/gpio/gpio14/value", // ELB1
     "/sys/class/gpio/gpio13/value"  //ELB2
 };
 
@@ -17,7 +18,7 @@ int read_end_course_sensors(int sensor)
 {
     char value;
 
-    if (sensor != ELB_1 || sensor != ELB_2)
+    if (sensor != ELB_1 && sensor != ELB_2)
     {
         // Invalid sensor identifier
         return -1;

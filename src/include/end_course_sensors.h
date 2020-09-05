@@ -6,8 +6,8 @@ extern "C"
 {
 #endif
 
-#define ELB_1 1
-#define ELB_2 2
+#define ELB_1 0
+#define ELB_2 1
 
 #define END_REACHED 1
 #define END_NOT_REACHED 0
