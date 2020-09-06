@@ -33,9 +33,9 @@
 **/
 void pwm_init()
 {
+    pwm_write_enable(PWM_ENABLE_PATH, 1);
     pwm_write_period(PWM_PERIOD_PATH, PWM_PERIOD);
     pwm_write_duty_cycle(PWM_DUTY_CYCLE_PATH, 0.5, PWM_PERIOD);
-    pwm_write_enable(PWM_ENABLE_PATH, 1);
 }
 
 /**
