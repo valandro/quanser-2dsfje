@@ -22,9 +22,9 @@
  */
 
 // Project headers
-#include "decoder.h"
-#include "spi_configuration_flags.h"
-#include "gpio.h"
+#include <decoder.h>
+#include <spi_configuration_flags.h>
+#include <gpio.h>
 
 // C headers
 #include <stdio.h>

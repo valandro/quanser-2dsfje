@@ -29,11 +29,13 @@
  * @brief Source file for board_name functions for Galileo utilized in quanser-2dsfje project for ENG10032
  */
 
+//Project Headers
+#include <galileo2io.h>
+
+// C Headers
 #include <fcntl.h>
 #include <string.h>
 #include <unistd.h>
-
-#include <galileo2io.h>
 
 int board_name(void)
 {

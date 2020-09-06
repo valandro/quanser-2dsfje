@@ -29,11 +29,13 @@
  * @brief Source file for pputs functions utilized in quanser-2dsfje project for ENG10032
  */
 
+// Project Headers
+#include <galileo2io.h>
+
+// C Headers
 #include <fcntl.h>
 #include <string.h>
 #include <unistd.h>
-
-#include <galileo2io.h>
 
 int pputs(const char path[],const char s[])
 {

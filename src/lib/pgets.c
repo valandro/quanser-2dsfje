@@ -29,10 +29,13 @@
  * @brief Source file for pgets functions utilized in quanser-2dsfje project for ENG10032
  */
 
+// Project Headers
+#include <galileo2io.h>
+
+// C Headers
 #include <fcntl.h>
 #include <unistd.h>
 
-#include <galileo2io.h>
 
 char *pgets(char *s,int size,const char path[])
 {

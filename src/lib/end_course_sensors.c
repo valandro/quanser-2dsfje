@@ -21,8 +21,10 @@
  * @brief Source file for End of Course Sensors utilized in quanser-2dsfje project for ENG10032
  */
 
+// Project Headers
 #include <gpio.h>
 #include <end_course_sensors.h>
+
 
 /*
     Paths to GPIO (Gen2)

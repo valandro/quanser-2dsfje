@@ -21,12 +21,13 @@
  * @brief Source file for GPIO Read wrappers utilized in quanser-2dsfje project for ENG10032
  */
 
+// Project Headers
+#include <gpio.h>
 
+// C Headers
 #include <fcntl.h>
 #include <string.h>
 #include <unistd.h>
-
-#include <gpio.h>
 
 /**
 	Write char value for a given GPIO pin

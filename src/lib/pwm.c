@@ -21,11 +21,13 @@
  * @brief Source file for PWM functions utilized in quanser-2dsfje project for ENG10032
  */
 
+// Project Headers
+#include <pwm.h>
+
+// C Headers
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdio.h>
-
-#include <pwm.h>
 
 /**
  	Setup PWM for initialization
