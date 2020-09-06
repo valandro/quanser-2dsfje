@@ -21,10 +21,11 @@
  * @brief Header file for PID Controller utilized in quanser-2dsfje project for ENG10032
  */
 
- #ifndef PIDCONTROLLER_H
- #define PIDCONTROLLER_H
+#ifndef PIDCONTROLLER_H
+#define PIDCONTROLLER_H
 
- #define MOTOR_MAX_VOLTAGE_PID 27.0
+#define MOTOR_MAX_VOLTAGE_PID 27.0
+#define ACCEPTABLE_PID_ERROR 0.02 // 2%
 
 enum EPidControllerGains
 {

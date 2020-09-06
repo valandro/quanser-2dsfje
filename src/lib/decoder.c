@@ -217,7 +217,7 @@ float get_decoder_position_radians()
 
   if(counter_value < 0)
   {
-      printf("SPI ERROR: Cannot read data of counter.\n");
+    printf("SPI ERROR: Cannot read data of counter.\n");
     return -1;
   }
 
