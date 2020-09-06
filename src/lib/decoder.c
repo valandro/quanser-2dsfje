@@ -25,6 +25,7 @@
 #include "decoder.h"
 #include "spi_configuration_flags.h"
 #include "gpio.h"
+
 // C headers
 #include <stdio.h>
 #include <stdint.h>
@@ -36,13 +37,13 @@
 /** @brief File descriptor for opening and gathering file data in device. Initialized with -1 (invalid descriptor)*/
 int file_descriptor = -1;
 
-/*
+/**
 * @brief Function that initiates Decoder and SPI interface configuration
 *
 * This function tries to open the device and reads/writes all Decoder/SPI interface comm values.
 * This function asserts the error when a file reading/writing cannot be done and aborts the program calling OS abort() function
 * @return int Greater than zero if the initialization is successful
-*/
+**/
 int decoder_init()
 {
   // Init SPI Configurations values
@@ -115,7 +116,7 @@ int decoder_init()
 }
 
 
-/*
+/**
 * @brief Function starts master-slave transition from high to low
 *
 * Following datasheet: A high to low transition at the SS/ (Slave Select) input
@@ -124,7 +125,7 @@ int decoder_init()
 *the MISO output to high impedance state. This allows for the
 *accommodation of multiple slave units on the serial I/O.
 * @return int Greater than zero if the initialization is successful
-*/
+**/
 int spi_start()
 {
   if(gpio_write(SS_PATH,1) != 1)
@@ -143,7 +144,7 @@ int spi_start()
 }
 
 
-/*
+/**
 * @brief Function transitions master-slave to stop
 *
 * Following datasheet: A high to low transition at the SS/ (Slave Select) input
@@ -152,7 +153,7 @@ int spi_start()
 *the MISO output to high impedance state. This allows for the
 *accommodation of multiple slave units on the serial I/O.
 * @return int Greater than zero if the initialization is successful
-*/
+**/
 int spi_stop()
 {
   if(gpio_write(SS_PATH,1) != 1)
@@ -164,13 +165,13 @@ int spi_stop()
 }
 
 
-/*
+/**
 * @brief Function writes spi data on buffer
-* @return int Greater than zero if the operation was successful
 *
 * @param op_code Opcode to be written
 * @param write_data Data to be written
-*/
+* @return int Greater than zero if the operation was successful
+**/
 int write_spi(unsigned char op_code, unsigned char write_data)
 {
   // Starts SS transition to gather data
@@ -203,12 +204,12 @@ int write_spi(unsigned char op_code, unsigned char write_data)
 }
 
 
-/*
+/**
 * @brief Function reads spi data on buffer
 * Reads always 4 bytes from the buffer
 *
 * @return int Greater than zero if the operation was successful
-*/
+**/
 int read_spi(unsigned char *data)
 {
 
@@ -225,10 +226,10 @@ int read_spi(unsigned char *data)
 }
 
 
-/*
+/**
 * @brief Function clears counter data on buffer
 * @return int Greater than zero if the operation was successful
-*/
+**/
 int clear_counter()
 {
   // Starts SS transition to gather data
@@ -253,10 +254,10 @@ int clear_counter()
   return 1;
 }
 
-/*
+/**
 * @brief Function reads counter data on buffer
 * @return int Returns the count of data read by the counter buffer
-*/
+**/
 int decoder_read_counter()
 {
   // Starts SS transition to gather data
