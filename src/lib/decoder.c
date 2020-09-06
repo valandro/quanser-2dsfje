@@ -205,6 +205,28 @@ int write_spi(unsigned char op_code, unsigned char write_data)
 
 
 /**
+* @brief Function that reads counter value and return the joint position in radians
+*
+* @return float The position in radians, or -1 if the reading and conversion is not successful
+**/
+float get_decoder_position_radians()
+{
+  int counter_value = -1;
+
+  counter_value = decoder_read_counter();
+
+  if(counter_value < 0)
+  {
+      printf("SPI ERROR: Cannot read data of counter.\n");
+    return -1;
+  }
+
+  // According to Quanser Manual, encoder angular resolution in quadrature is equal to 0.0015
+  return ENCODER_ANGULAR_RESOLUTION * counter_value;
+}
+
+
+/**
 * @brief Function reads spi data on buffer
 * Reads always 4 bytes from the buffer
 *

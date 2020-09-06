@@ -152,7 +152,6 @@ int h_bridge_disable()
 **/
 int h_bridge_set_motor_voltage(float voltage)
 {
-
   // Check if desired voltage is valid
   if(voltage > MOTOR_MAX_VOLTAGE && voltage < -MOTOR_MAX_VOLTAGE)
   {

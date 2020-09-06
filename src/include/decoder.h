@@ -31,6 +31,7 @@
 #define DECODER_INIT_ERROR -1
 #define BITS_PER_WORD 8
 #define SPI_SPEED 8000000
+#define ENCODER_ANGULAR_RESOLUTION 0.0015
 
 #ifdef __cplusplus
 extern "C"
