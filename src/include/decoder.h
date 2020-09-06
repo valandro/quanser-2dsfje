@@ -45,8 +45,8 @@ extern int decoder_init();
 extern int spi_start();
 extern int spi_stop();
 extern int write_spi(unsigned char op_code, unsigned char write_data);
-extern int read_spi();
 extern int clear_counter();
+extern int decoder_read_counter();
 
 #ifdef __cplusplus
 };

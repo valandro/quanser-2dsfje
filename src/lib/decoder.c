@@ -205,25 +205,20 @@ int write_spi(unsigned char op_code, unsigned char write_data)
 
 /*
 * @brief Function reads spi data on buffer
-* @return int Greater than zero if the operation was successful
+* Reads always 4 bytes from the buffer
 *
+* @return int Greater than zero if the operation was successful
 */
-int read_spi()
+int read_spi(unsigned char *data)
 {
-  // Starts SS transition to gather data
-  if(spi_start() < 0)
+
+  for (i = 0; i < sizeof(4 * sizeof(unsigned char)); i++)
   {
-    return -1;
-  }
-
-
-
-
-
-  // Stops SS
-  if(spi_stop() < 0)
-  {
-    return -1;
+      if (read(file_descriptor, &data[i], 1) < 0)
+      {
+        printf("SPI ERROR: Cannot read data of counter.\n");
+        return -1;
+      }
   }
 
   return 1;
@@ -256,4 +251,58 @@ int clear_counter()
   }
 
   return 1;
+}
+
+/*
+* @brief Function reads counter data on buffer
+* @return int Returns the count of data read by the counter buffer
+*/
+int decoder_read_counter()
+{
+  // Starts SS transition to gather data
+  if(spi_start() < 0)
+  {
+    return -1;
+  }
+
+  // Start the counter read with a opcode indicating a read operation in the counter
+  unsigned char op_code = READ_CNTR;
+  if (write(file_descriptor, &op_code, sizeof(op_code)) < 0)
+  {
+    printf("SPI ERROR: Cannot write opcode of SPI when reading counter.\n");
+    return -1;
+  }
+
+  // Read counter data
+  unsigned char counter_data[4];
+
+  int i = 0;
+  for (i = 0; i < sizeof(4 * sizeof(unsigned char)); i++)
+  {
+      if (read(file_descriptor, &counter_data[i], 1) < 0)
+      {
+        printf("SPI ERROR: Cannot read data of counter.\n");
+        return -1;
+      }
+  }
+
+  // Stops SS
+  if(spi_stop() < 0)
+  {
+    return -1;
+  }
+
+  // Align bits to gather counter data performing bitwise OR operations
+  // Implicit casting padding unsigned char (8-bits) to unsigned int (32-bits)
+  // Real data => unsigned char (8-bits)
+  // After casting => 00000000 00000000 00000000 data (32bits)
+  // Shift for aligning bits => data[0] >> 24 => data 00000000 00000000 00000000
+  // data[1] >> 16 => 00000000 data 00000000 00000000
+  // data[2] >> 8 => 00000000 00000000 data 00000000
+  unsigned int counter_byte_1 = counter_data[3];
+  unsigned int counter_byte_2 = counter_data[2] << 8;
+  unsigned int counter_byte_3 = counter_data[1] << 16;
+  unsigned int counter_byte_4 = counter_data[0] << 24;
+
+  return counter_byte_1 | counter_byte_2 | counter_byte_3 | counter_byte_4;
 }
