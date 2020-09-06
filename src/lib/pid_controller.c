@@ -15,7 +15,7 @@
 
 
 /**
- * @file pidController.c
+ * @file pid_ontroller.c
  * @author Lucas Augusto Tansini, Lucas Valandro da Rocha, Gustavo Francisco
  * @date Sept 2020
  * @brief Source file for PID Controller utilized in quanser-2dsfje project for ENG10032
@@ -24,6 +24,9 @@
 
 // Project Headers
 #include <pid_controller.h>
+
+// C Headers
+#include <stdio.h>
 
 /*
 * @brief Structure holding PID Controller data
@@ -47,7 +50,7 @@ struct SPidController
 * @param new_gain_value Value to set the selected gain.
 * @return void
 */
-void set_gain_value(EPidControllerGains gain_type, double new_gain_value)
+void set_gain_value(pid_gains gain_type, double new_gain_value)
 {
   switch(gain_type)
   {
@@ -107,6 +110,7 @@ float run_pid_controller(float joint_current_position, float* pid_voltage_value)
       pid_controller_target_voltage = MOTOR_MAX_VOLTAGE_PID;
     }
 
+    pid_voltage_value = &pid_controller_target_voltage;
     // Return PID error
     return error;
 }

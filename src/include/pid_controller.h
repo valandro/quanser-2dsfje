@@ -27,14 +27,14 @@
 #define MOTOR_MAX_VOLTAGE_PID 27.0
 #define ACCEPTABLE_PID_ERROR 0.02 // 2%
 
-enum EPidControllerGains
+typedef enum EPidControllerGains
 {
     eKp = 1,
     eKi,
     eKd
-};
+} pid_gains;
 
-void set_gain_value(EPidControllerGains gainType, double newGainValue);
+void set_gain_value(pid_gains gainType, double newGainValue);
 float run_pid_controller(float joint_current_position, float* pid_voltage_value);
 
  #endif //PIDCONTROLLER_H

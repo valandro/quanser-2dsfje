@@ -1,5 +1,5 @@
 TARGET=libgalileo2.a
-SRCS=gpio_read.c gpio_write.c pgets.c pputs.c pwm.c board_name.c end_course_sensors.c decoder.c h_bridge.c
+SRCS=gpio_read.c gpio_write.c pgets.c pputs.c pwm.c board_name.c end_course_sensors.c decoder.c h_bridge.c pid_controller.c
 
 FLAGS=-O2 -Wall -MMD
 INCLUDE=-I. -I../include

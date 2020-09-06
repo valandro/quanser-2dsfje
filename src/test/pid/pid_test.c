@@ -37,7 +37,7 @@ int main(int argc,char * argv[])
   // Initialize PID, PWM, H Bridge, Decoder
 
   float pid_error = FLT_MAX;
-  float* pid_voltage_value_return;
+  float* pid_voltage_value_return = NULL;
   float joint_current_position = 0.0;
   // Run PID Controller until 2% Error
   while(pid_error > ACCEPTABLE_PID_ERROR)
@@ -51,15 +51,15 @@ int main(int argc,char * argv[])
     }
 
     // Run PID Controller
-    pid_error = run_pid_controller(joint_current_position , &pid_voltage_value_return);
+    pid_error = run_pid_controller(joint_current_position , pid_voltage_value_return);
 
     // Set Motor voltage
-    h_bridge_set_motor_voltage(pid_voltage_value_return);
+    h_bridge_set_motor_voltage(*pid_voltage_value_return);
 
     // PID Sampling 100Hz
     usleep(10000);
   }
 
 
-
+  return 0;
 }
