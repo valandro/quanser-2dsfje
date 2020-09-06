@@ -212,7 +212,7 @@ int write_spi(unsigned char op_code, unsigned char write_data)
 **/
 int read_spi(unsigned char *data)
 {
-
+  int i = 0;
   for (i = 0; i < sizeof(4 * sizeof(unsigned char)); i++)
   {
       if (read(file_descriptor, &data[i], 1) < 0)
