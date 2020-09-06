@@ -36,7 +36,6 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-
 char *pgets(char *s,int size,const char path[])
 {
 	int fd;

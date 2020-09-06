@@ -1,5 +1,5 @@
 TARGET=libgalileo2.a
-SRCS=gpio_read.c gpio_write.c pgets.c pputs.c pwm.c board_name.c end_course_sensors.c decoder.c
+SRCS=gpio_read.c gpio_write.c pgets.c pputs.c pwm.c board_name.c end_course_sensors.c decoder.c h_bridge.c
 
 FLAGS=-O2 -Wall -MMD
 INCLUDE=-I. -I../include
@@ -15,7 +15,7 @@ CCARFLAGS=-crvs
 all: $(TARGET)
 
 $(TARGET): $(SRCS:.c=.o)
-	$(CCAR) $(CCARFLAGS) $@ $^ 
+	$(CCAR) $(CCARFLAGS) $@ $^
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
