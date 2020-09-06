@@ -25,6 +25,7 @@
 #include <galileo2io.h>
 #include <h_bridge.h>
 #include <gpio.h>
+#include <pwm.h>
 
 // C Headers
 #include <fcntl.h>
@@ -136,4 +137,40 @@ int h_bridge_disable()
   {
     return -1;
   }
+}
+
+/**
+*	@brief Set motor voltage
+*
+* Duty Cycle = A*Voltage + B
+* 0          = A*(-27)   + B
+* 1          = A*(27)    + B
+*------------------------------
+* A = 1 / 54 , B = 1 / 2
+* @return int Greater than zero if the voltage setting was successful
+* @param voltage Voltage value to be set into motor
+**/
+int h_bridge_set_motor_voltage(float voltage)
+{
+
+  // Check if desired voltage is valid
+  if(voltage > MOTOR_MAX_VOLTAGE && voltage < -MOTOR_MAX_VOLTAGE)
+  {
+    printf("H_BRIDGE ERROR: Voltage applied is out of range.\n");
+    return -1;
+  }
+
+  float duty_cycle = 0.0;
+
+  duty_cycle = (1 / (2 * MOTOR_MAX_VOLTAGE)) * voltage + 0.5;
+
+  // Setting PWM duty cycle value
+  if(pwm_write_duty_cycle(PWM_DUTY_CYCLE_PATH, duty_cycle, PWM_PERIOD) <= 0)
+  {
+    printf("H_BRIDGE ERROR: Cannot write PWM duty cycle\n");
+    return -1;
+  }
+
+  // PWM Duty cycle is set
+  return 1;
 }

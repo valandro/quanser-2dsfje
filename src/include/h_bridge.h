@@ -31,6 +31,7 @@ extern "C"
 
 #define THERMAL_FLAG_OFF 0
 #define THERMAL_FLAG_ON 1
+#define MOTOR_MAX_VOLTAGE 27.0
 #define CURRENT_SENSOR_PATH_RAW "/sys/bus/iio/devices/iio:device0/in_voltage0_raw"
 #define CURRENT_SENSOR_PATH_SCALE "/sys/bus/iio/devices/iio:device0/in_voltage0_scale"
 #define THERMAL_FLAG_PATH_RAW "/sys/bus/iio/devices/iio:device0/in_voltage1_raw"
@@ -41,6 +42,8 @@ extern double get_current_sensor();
 extern int get_thermal_flag();
 extern int h_bridge_disable();
 extern int h_bridge_enable();
+extern int h_bridge_set_motor_voltage(float voltage);
+
 
 #ifdef __cplusplus
 };
