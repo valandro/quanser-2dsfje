@@ -24,6 +24,8 @@
  #ifndef PIDCONTROLLER_H
  #define PIDCONTROLLER_H
 
+ #define MOTOR_MAX_VOLTAGE_PID 27.0
+
 enum EPidControllerGains
 {
     eKp = 1,
@@ -32,6 +34,6 @@ enum EPidControllerGains
 };
 
 void set_gain_value(EPidControllerGains gainType, double newGainValue);
-
+float run_pid_controller(float joint_current_position, float* pid_voltage_value);
 
  #endif //PIDCONTROLLER_H
