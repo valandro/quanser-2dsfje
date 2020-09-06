@@ -1,6 +1,6 @@
 /*
   galileo2io.h: Helper functions for Galileo I/O
-  
+
   Copyright (c) 2016, 2020 Walter Fetter Lages <w.fetter@ieee.org>
 
     This program is free software; you can redistribute it and/or modify
@@ -21,6 +21,13 @@
     at <http://www.gnu.org/licenses>.
 
 */
+
+/**
+ * @file galileo2io.h
+ * @author Walter Fetter Lages
+ * @date Sept 2020
+ * @brief Header file for galileo2io header utilized in quanser-2dsfje project for ENG10032
+ */
 
 #ifndef GALILEO2IO_H
 #define GALILEO2IO_H

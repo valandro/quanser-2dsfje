@@ -15,25 +15,28 @@
 
 
 /**
- * @file gpio.h
+ * @file h_bridge.h
  * @author Lucas Augusto Tansini, Lucas Valandro da Rocha, Gustavo Francisco
  * @date Sept 2020
- * @brief Header file for GPio header utilized in quanser-2dsfje project for ENG10032
+ * @brief Header file for H Brige header utilized in quanser-2dsfje project for ENG10032
  */
 
-#ifndef UTILS_H
-#define UTILS_H
+#ifndef H_BRIDGE
+#define H_BRIDGE
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
 
-    extern char gpio_read(const char path[]);
-    extern int gpio_write(const char path[], const char value);
+#define THERMAL_FLAG_OFF 0
+#define THERMAL_FLAG_ON 1
+
+extern double getCurrentSensor();
+extern int getThermalFlag();
 
 #ifdef __cplusplus
 };
 #endif
 
-#endif
+#endif // H_BRIDGE

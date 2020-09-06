@@ -1,3 +1,26 @@
+// Copyright (C) 2020 Lucas Augusto Tansini, Lucas Valandro da Rocha, Gustavo Francisco
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+
+/**
+ * @file pwm.c
+ * @author Lucas Augusto Tansini, Lucas Valandro da Rocha, Gustavo Francisco
+ * @date Sept 2020
+ * @brief Source file for PWM functions utilized in quanser-2dsfje project for ENG10032
+ */
+
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -6,7 +29,7 @@
 
 /**
  	Setup PWM for initialization
-    \see See pwm.h for all constant values. 
+    \see See pwm.h for all constant values.
 **/
 void pwm_init()
 {
@@ -17,7 +40,7 @@ void pwm_init()
 
 /**
  	This function stop the PWM signal gerenation by writing '0' into enable
-    \see See pwm.h for checking PWM_ENABLE_PATH value. 
+    \see See pwm.h for checking PWM_ENABLE_PATH value.
 **/
 void pwm_stop()
 {
@@ -35,7 +58,7 @@ int pwm_frequency_to_period(const int frequency)
 }
 
 /**
-    Writes enable value to the pwm pin 
+    Writes enable value to the pwm pin
     @param path: the path to pwm file
     @param enable: the enable value (int), either 1 or 0
     @return: the number of bytes written

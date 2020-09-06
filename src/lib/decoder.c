@@ -48,7 +48,7 @@ int decoder_init()
   // Init SPI Configurations values
   uint8_t spiMode = SPI_MODE_0; // SPI Mode in zero -> CPOL = 0, CPHA = 0. Data sampling in uprising clock and altering in down clock.
   uint8_t bitsPerWord = BITS_PER_WORD; // 1 Byte
-  uint8_t lsb = 0; // Bits. Starting from MSB, because lsb = 0.
+  uint8_t lsb = 0; // Bits. Starting from MSB, because lsb = 0. This is important for counter reading later
   uint32_t spiSpeed = SPI_SPEED; // SPI Speed
 
   // Opening the device first

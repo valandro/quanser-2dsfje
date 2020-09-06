@@ -1,6 +1,6 @@
 /*
   board_name.c: Returns board name identification.
-  
+
   Copyright (c) 2020 Walter Fetter Lages <w.fetter@ieee.org>
 
     This program is free software; you can redistribute it and/or modify
@@ -22,6 +22,13 @@
 
 */
 
+/**
+ * @file board_name.c
+ * @author Walter Fetter Lages
+ * @date Sept 2020
+ * @brief Source file for board_name functions for Galileo utilized in quanser-2dsfje project for ENG10032
+ */
+
 #include <fcntl.h>
 #include <string.h>
 #include <unistd.h>
@@ -33,7 +40,7 @@ int board_name(void)
 	int fd;
 	char s[20];
 	int n;
-	
+
 	fd = open("/sys/devices/virtual/dmi/id/board_name", O_RDONLY);
 	n = read(fd, s, sizeof s);
 	close(fd);

@@ -15,7 +15,7 @@
 
 
 /**
- * @file spi_configuration_flagas.h
+ * @file spi_configuration_flags.h
  * @author Lucas Augusto Tansini, Lucas Valandro da Rocha, Gustavo Francisco
  * @date Sept 2020
  * @brief Header file for spi configuration flags utilized in quanser-2dsfje project for ENG10032

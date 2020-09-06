@@ -1,6 +1,6 @@
 /*
   pputs.c: Writes a string to a file, given its path.
-  
+
   Copyright (c) 2016 Walter Fetter Lages <w.fetter@ieee.org>
 
     This program is free software; you can redistribute it and/or modify
@@ -22,6 +22,13 @@
 
 */
 
+/**
+ * @file pputs.c
+ * @author Walter Fetter Lages
+ * @date Sept 2020
+ * @brief Source file for pputs functions utilized in quanser-2dsfje project for ENG10032
+ */
+
 #include <fcntl.h>
 #include <string.h>
 #include <unistd.h>
@@ -32,7 +39,7 @@ int pputs(const char path[],const char s[])
 {
 	int fd;;
 	int n;
-	
+
 	if((fd = open(path, O_WRONLY)) == -1) return -1;
 	n = write(fd, s, strlen(s));
 	close(fd);
