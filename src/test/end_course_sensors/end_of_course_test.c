@@ -13,16 +13,15 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+// Project Headers
+#include <gpio.h>
+#include <end_course_sensors.h>
 
-
-
+// C Headers
 #include <fcntl.h>
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
-
-#include <gpio.h>
-#include <end_course_sensors.h>
 
 int main(int argc,char * argv[]) {
     printf("1. Test ELB1 REACHED...\n");

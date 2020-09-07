@@ -13,16 +13,16 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+// Project Headers
+#include <gpio.h>
+#include <pwm.h>
 
-
+// C Headers
 #include <fcntl.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
-
-#include <gpio.h>
-#include <pwm.h>
 
 int main(int argc,char * argv[]) {
     printf("1. Test pwm_init()...\n");

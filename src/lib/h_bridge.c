@@ -52,14 +52,14 @@ double get_current_sensor()
       return -1;
     }
 
-    pgets(data_str,sizeof data_str,CURRENT_SENSOR_PATH_SCALE);
-    scale=atof(data_str)/1000.0;
+    pgets(data_str, sizeof data_str, CURRENT_SENSOR_PATH_SCALE);
+    scale = atof(data_str) / 1000.0;
 
-		lseek(fd,0,SEEK_SET);
-		read(fd,data_str,sizeof data_str);
-		raw=atoi(data_str);
+		lseek(fd, 0, SEEK_SET);
+		read(fd, data_str, sizeof data_str);
+		raw = atoi(data_str);
 
-		current = (raw*scale)/0.1;
+		current = (raw * scale)/ 0.1;
 
     close(fd);
 
@@ -118,7 +118,7 @@ int h_bridge_enable()
   if(gpio_write(H_BRIDGE_ENABLE_PIN, '1') > 0)
   {
     return 1;
-  }else
+  } else
   {
     return -1;
   }
@@ -133,7 +133,7 @@ int h_bridge_disable()
   if(gpio_write(H_BRIDGE_ENABLE_PIN, '0') > 0)
   {
     return 1;
-  }else
+  } else
   {
     return -1;
   }
@@ -153,7 +153,7 @@ int h_bridge_disable()
 int h_bridge_set_motor_voltage(float voltage)
 {
   // Check if desired voltage is valid
-  if(voltage > MOTOR_MAX_VOLTAGE && voltage < -MOTOR_MAX_VOLTAGE)
+  if(voltage > MOTOR_MAX_VOLTAGE || voltage < -MOTOR_MAX_VOLTAGE)
   {
     printf("H_BRIDGE ERROR: Voltage applied is out of range.\n");
     return -1;

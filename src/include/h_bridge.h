@@ -36,7 +36,7 @@ extern "C"
 #define CURRENT_SENSOR_PATH_SCALE "/sys/bus/iio/devices/iio:device0/in_voltage0_scale"
 #define THERMAL_FLAG_PATH_RAW "/sys/bus/iio/devices/iio:device0/in_voltage1_raw"
 #define THERMAL_FLAG_PATH_SCALE "/sys/bus/iio/devices/iio:device0/in_voltage1_scale"
-#define H_BRIDGE_ENABLE_PIN "/sys/class/gpio/gpio6/value"  // IO 4
+#define H_BRIDGE_ENABLE_PIN "/sys/class/gpio/gpio6/value" 
 
 extern double get_current_sensor();
 extern int get_thermal_flag();
