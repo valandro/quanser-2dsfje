@@ -76,6 +76,17 @@ void set_gain_value(int gain_type, double new_gain_value)
   }
 }
 
+/*
+* @brief Variable for sets PID target value
+*
+* This function sets a gain value for the PID Controller
+* @param desired_value Target value position to PID controller.
+* @return void
+*/
+void set_desired_position(float desired_value)
+{
+  pidController.joint_desired_position = desired_value;
+}
 
 /*
 * @brief Runs PID Controller

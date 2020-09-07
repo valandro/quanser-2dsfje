@@ -1,0 +1,56 @@
+// Copyright (C) 2020 Lucas Augusto Tansini, Lucas Valandro da Rocha, Gustavo Francisco
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+// Project Headers
+#include <pid_controller.h>
+
+// C Headers
+#include <fcntl.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <float.h>
+#include <time.h>
+
+int main(int argc,char * argv[])
+{
+  set_gain_value(KP_GAIN, 10);
+  set_gain_value(KI_GAIN, 0);
+  set_gain_value(KD_GAIN, 0);
+
+  float pid_error = FLT_MAX;
+
+  // Starting with 10
+  float current_position_test = 10;
+
+  // Setting desired position to 100
+  set_desired_position(100);
+
+  // Not used
+  float* pid_voltage_return_dummy = NULL;
+
+  while(pid_error > ACCEPTABLE_PID_ERROR)
+  {
+    pid_error = run_pid_controller(current_position_test, pid_voltage_return_dummy);
+    printf("PID Error after one PID run: %f.\n", pid_error);
+
+    // Simulating position advance
+    current_position_test += 0.5;
+  }
+
+  printf("PID Successfully ended executing with error < 2%.\n", pid_error);
+  return 0;
+}

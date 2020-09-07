@@ -30,6 +30,7 @@
 #define KI_GAIN 2
 #define KD_GAIN 3
 
+void set_desired_position(float desired_value);
 void set_gain_value(int gainType, double newGainValue);
 float run_pid_controller(float joint_current_position, float* pid_voltage_value);
 

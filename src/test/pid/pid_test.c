@@ -57,6 +57,10 @@ int main(int argc,char * argv[])
   float pid_error = FLT_MAX;
   float* pid_voltage_value_return = NULL;
   float joint_current_position = 0.0;
+
+  // Setting desired position in radians
+  set_desired_position(2.5);
+
   // Run PID Controller until 2% Error
   while(pid_error > ACCEPTABLE_PID_ERROR)
   {
