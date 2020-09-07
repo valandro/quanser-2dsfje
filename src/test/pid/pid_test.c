@@ -13,9 +13,6 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-
-
-
 // Project Headers
 #include <gpio.h>
 #include <pwm.h>
@@ -34,7 +31,29 @@
 
 int main(int argc,char * argv[])
 {
+  pid_gains gains;
   // Initialize PID, PWM, H Bridge, Decoder
+  if(pwm_init() < 0)
+  {
+    printf("Error: Cannot init PWM on pid.");
+    return -1;
+  }
+
+  set_gain_value(gains.eKp,10);
+  set_gain_value(gains.eKi,0);
+  set_gain_value(gains.eKd,0);
+
+  if(h_bridge_enable() < 0)
+  {
+    printf("Error: Cannot init H Bridge on pid.");
+    return -1;
+  }
+
+  if(decoder_init() < 0)
+  {
+    printf("Error: Cannot init Decoder on pid.");
+    return -1;
+  }
 
   float pid_error = FLT_MAX;
   float* pid_voltage_value_return = NULL;
@@ -58,6 +77,24 @@ int main(int argc,char * argv[])
 
     // PID Sampling 100Hz
     usleep(10000);
+  }
+
+  if(pwm_stop() < 0)
+  {
+    printf("Error: Cannot stop PWM on pid.");
+    return -1;
+  }
+
+  if(h_bridge_disable() < 0)
+  {
+    printf("Error: Cannot stop H Bridge on pid.");
+    return -1;
+  }
+
+  if(decoder_end() < 0)
+  {
+    printf("Error: Cannot stop Decoder on pid.");
+    return -1;
   }
 
 

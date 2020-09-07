@@ -29,24 +29,45 @@
 #include <unistd.h>
 #include <stdio.h>
 
+
 /**
- 	Setup PWM for initialization
-    \see See pwm.h for all constant values.
+*	@brief Initializes PWM
+* @return int Greater than zero if the initialization is successful
 **/
-void pwm_init()
+int pwm_init()
 {
-    pwm_write_enable(PWM_ENABLE_PATH, 1);
-    pwm_write_period(PWM_PERIOD_PATH, PWM_PERIOD);
-    pwm_write_duty_cycle(PWM_DUTY_CYCLE_PATH, 0.5, PWM_PERIOD);
+    if(pwm_write_enable(PWM_ENABLE_PATH, 1) < 0)
+    {
+        printf("PWM Error: Cannot write enable value on PWM.");
+        return -1;
+    }
+    if(pwm_write_period(PWM_PERIOD_PATH, PWM_PERIOD) < 0)
+    {
+        printf("PWM Error: Cannot write period value on PWM.");
+        return -1;
+    }
+    if(pwm_write_duty_cycle(PWM_DUTY_CYCLE_PATH, 0.5, PWM_PERIOD) < 0)
+    {
+        printf("PWM Error: Cannot write duty cycle value on PWM.");
+        return -1;
+    }
+
+    return 1;
 }
 
 /**
- 	This function stop the PWM signal gerenation by writing '0' into enable
-    \see See pwm.h for checking PWM_ENABLE_PATH value.
+*	@brief Stops PWM
+* @return int Greater than zero if the stop is successful
 **/
-void pwm_stop()
+int pwm_stop()
 {
-    pwm_write_enable(PWM_ENABLE_PATH, 0);
+    if(pwm_write_enable(PWM_ENABLE_PATH, 0) < 0)
+    {
+      printf("PWM Error: Cannot write enable 0 to stop PWM.");
+      return -1;
+    }
+
+    return 1;
 }
 
 /**

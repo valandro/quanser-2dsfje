@@ -33,8 +33,8 @@
 extern "C"
 {
 #endif
-    extern void pwm_init();
-    extern void pwm_stop();
+    extern int pwm_init();
+    extern int pwm_stop();
     extern int pwm_frequency_to_period(const int frequency);
     extern int pwm_write_enable(const char path[], const int enable);
     extern int pwm_write_period(const char path[], const int period);

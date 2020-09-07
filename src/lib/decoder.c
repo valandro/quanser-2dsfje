@@ -117,6 +117,24 @@ int decoder_init()
 
 
 /**
+* @brief Function that finalizes Decoder interface
+*
+* @return int Greater than zero if the initialization is successful
+**/
+int decoder_end()
+{
+  if(fclose(file_descriptor) == 0)
+  {
+    return 1;
+  }else
+  {
+    printf("SPI ERROR: Cannot close decoder file descriptor.\n");
+    return -1;
+  }
+}
+
+
+/**
 * @brief Function starts master-slave transition from high to low
 *
 * Following datasheet: A high to low transition at the SS/ (Slave Select) input
