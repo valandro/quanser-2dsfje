@@ -31,7 +31,6 @@
 
 int main(int argc,char * argv[])
 {
-  pid_gains gains;
   // Initialize PID, PWM, H Bridge, Decoder
   if(pwm_init() < 0)
   {
@@ -39,9 +38,9 @@ int main(int argc,char * argv[])
     return -1;
   }
 
-  set_gain_value(gains.eKp,10);
-  set_gain_value(gains.eKi,0);
-  set_gain_value(gains.eKd,0);
+  set_gain_value(KP_GAIN, 10);
+  set_gain_value(KI_GAIN, 0);
+  set_gain_value(KD_GAIN, 0);
 
   if(h_bridge_enable() < 0)
   {

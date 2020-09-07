@@ -50,21 +50,21 @@ struct SPidController
 * @param new_gain_value Value to set the selected gain.
 * @return void
 */
-void set_gain_value(pid_gains gain_type, double new_gain_value)
+void set_gain_value(int gain_type, double new_gain_value)
 {
   switch(gain_type)
   {
-    case eKp:
+    case KP_GAIN:
     {
       pidController.Kp = new_gain_value;
     }
     break;
-    case eKi:
+    case KI_GAIN:
     {
       pidController.Ki = new_gain_value;
     }
     break;
-    case eKd:
+    case KD_GAIN:
     {
       pidController.Kd = new_gain_value;
     }

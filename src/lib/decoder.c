@@ -123,10 +123,10 @@ int decoder_init()
 **/
 int decoder_end()
 {
-  if(fclose(file_descriptor) == 0)
+  if(close(file_descriptor) == 0)
   {
     return 1;
-  }else
+  } else
   {
     printf("SPI ERROR: Cannot close decoder file descriptor.\n");
     return -1;
