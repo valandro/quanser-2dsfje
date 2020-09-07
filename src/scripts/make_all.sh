@@ -1,5 +1,7 @@
 source iss_setup.sh
 
+doxygen doxygenConfigurationFile.conf
+
 cd ../lib
 make distclean
 make
