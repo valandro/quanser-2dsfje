@@ -155,6 +155,14 @@ case "$1" in
 					echo -n "74" > /sys/class/gpio/export
 				fi
 				echo -n "0" > /sys/class/gpio/gpio74/value
+
+				if [ ! -d /sys/class/gpio/gpio10 ] ; then
+					echo -n "10" > /sys/class/gpio/export
+				fi
+				echo -n "out" > /sys/class/gpio/gpio10/direction
+
+				chgrp gpio /sys/class/gpio/gpio10/value
+				chmod g+rw /sys/class/gpio/gpio10/value
 				
 				# Configures IO11 for SPI MOSI
 				#	gpio24=0 (output)
@@ -219,6 +227,9 @@ case "$1" in
 				echo -n "out" > /sys/class/gpio/gpio46/direction
 				echo -n "1" > /sys/class/gpio/gpio46/value
 
+				chgrp spi /dev/spidev1.0
+				chmod g+rw /dev/spidev1.0
+
 				############################################################################################
 				# IO4 output - ENABLE
 				## Left Shifter GPIO
@@ -269,8 +280,6 @@ case "$1" in
 				chmod g+r /sys/bus/iio/devices/iio:device0/in_voltage1_scale
 	;;
     esac
-		chgrp spi /dev/spidev1.0
-		chmod g+rw /dev/spidev1.0
     ;;
   stop)
     case $boardId in
@@ -313,6 +322,8 @@ case "$1" in
 				echo -n "0" > /sys/class/pwm/pwmchip0/pwm3/enable
 				echo -n "3" > /sys/class/pwm/pwmchip0/unexport
 				# SPI
+				echo -n "in" > /sys/class/gpio/gpio10/direction
+				echo -n "10" > /sys/class/gpio/unexport
 				echo -n "1" > /sys/class/gpio/gpio26/value
 				echo -n "26" > /sys/class/gpio/unexport
 				echo -n "in" > /sys/class/gpio/gpio27/direction

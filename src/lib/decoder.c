@@ -146,13 +146,13 @@ int decoder_end()
 **/
 int spi_start()
 {
-  if(gpio_write(SS_PATH,1) != 1)
+  if(gpio_write(SS_PATH, '1') != 1)
   {
     printf("SPI ERROR: Cannot write SS value high for high-low transition.\n");
     return -1;
   }
 
-  if(gpio_write(SS_PATH,0) != 1)
+  if(gpio_write(SS_PATH, '0') != 1)
   {
     printf("SPI ERROR: Cannot write SS value low for high-low transition.\n");
     return -1;
@@ -174,7 +174,7 @@ int spi_start()
 **/
 int spi_stop()
 {
-  if(gpio_write(SS_PATH,1) != 1)
+  if(gpio_write(SS_PATH, '1') != 1)
   {
     printf("SPI ERROR: Cannot write SS value high for low-high transition.\n");
     return -1;

@@ -43,6 +43,7 @@ int gpio_write(const char path[], char value)
 
     if ((gpio = open(path, O_WRONLY)) == -1)
     {
+        printf("Error.\n");
         return -1;
     }
 
