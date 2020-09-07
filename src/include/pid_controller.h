@@ -13,9 +13,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-
 /**
- * @file pidController.h
+ * @file pid_controller.h
  * @author Lucas Augusto Tansini, Lucas Valandro da Rocha, Gustavo Francisco
  * @date Sept 2020
  * @brief Header file for PID Controller utilized in quanser-2dsfje project for ENG10032
