@@ -58,6 +58,6 @@ int main(int argc,char * argv[])
     current_position_test += teste;
   }
   printf("Final position: %f \n", current_position_test);
-  printf("PID Successfully ended executing with error < 2%, attempts %d.\n",interations);
+  printf("PID Successfully ended executing with error < 2%%, attempts %d.\n",interations);
   return 0;
 }
