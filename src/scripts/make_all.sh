@@ -1,8 +1,9 @@
 source iss_setup.sh
 
+cd ..
 doxygen doxygenConfigurationFile.conf
 
-cd ../lib
+cd lib
 make distclean
 make
 cd ../

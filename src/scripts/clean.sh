@@ -1,3 +1,6 @@
+cd ../documentation
+rm -rf generatedDocumentation
+
 cd ../lib
 make distclean
 cd ../
