@@ -10,3 +10,4 @@
 
 - Lucas Valandro (@valandro)
 - Lucas Tansini (@lucastansini)
+- Gustavo Francisco (@guga581)
